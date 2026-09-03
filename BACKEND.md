@@ -204,3 +204,123 @@ El middleware registra automáticamente las mutaciones exitosas con estado
 entidad y `entidad_id` en el historial. Las rutas de autenticación e historial
 se excluyen para evitar registros recursivos.
 
+## Guía para pruebas de integración
+
+El backend debe probarse como el sistema que recibe una petición del frontend,
+valida autenticación y rol, ejecuta reglas de negocio, consulta PostgreSQL y
+devuelve una respuesta que el frontend pueda consumir. El objetivo no es
+probar cada función aislada, sino verificar la cadena completa:
+
+```text
+HTTP request
+  → route
+  → middleware JWT/rol
+  → controller
+  → service
+  → PostgreSQL/Supabase
+  → response JSON
+  → store y componente del frontend
+```
+
+### Entorno de prueba
+
+Levantar el backend y el frontend en procesos separados:
+
+```bash
+cd apps/api
+npm run dev
+
+cd apps/web
+npm run dev
+```
+
+Antes de ejecutar casos dependientes, comprobar:
+
+- `GET` o una petición equivalente responde desde
+  `http://localhost:3000/api/v1`.
+- `http://localhost:3000/api-docs` abre Swagger.
+- La conexión PostgreSQL se establece correctamente en el arranque.
+- `JWT_SECRET` y las variables `DB_*` apuntan a una base de datos de pruebas.
+- El origen del frontend (`http://localhost:5173`) está permitido por CORS.
+
+Se recomienda una base aislada o datos con un prefijo de prueba. No se deben
+usar credenciales reales ni exponer valores de `.env` en evidencias.
+
+### Contrato HTTP que debe verificarse
+
+- Todas las peticiones protegidas llevan
+  `Authorization: Bearer <token>`.
+- Los cuerpos usan `Content-Type: application/json`.
+- Las respuestas exitosas devuelven JSON con estado `200` o `201`.
+- Los errores usan la forma `{ "message": "..." }`.
+- `401` significa token ausente, inválido o expirado.
+- `403` significa autenticación válida pero permisos insuficientes.
+- `404` significa recurso inexistente en el alcance solicitado.
+- `409` se usa para conflictos como email duplicado o pedido ya completado.
+
+### Datos y dependencias de ejecución
+
+La secuencia mínima para preparar una prueba de extremo a extremo es:
+
+1. `POST /auth/register` como `jefe`; guardar `token`, `user.id` y
+   `user.local_id`.
+2. `POST /auth/login`; confirmar que el password se valida contra bcrypt y que
+   se emite un JWT de ocho horas.
+3. `POST /productos/categorias` y `POST /inventario/insumos`.
+4. `POST /productos` usando la categoría y los insumos creados.
+5. Generar un código con `POST /usuarios/codigo-invitacion`.
+6. Registrar un `empleado` con ese código y confirmar el mismo `local_id`.
+7. Crear un pedido con `POST /pedidos`.
+8. Cambiar su estado hasta completarlo y confirmar el descuento de stock.
+9. Consultar `/reportes/*` y `/historial` para comprobar los efectos.
+
+Los identificadores deben obtenerse de las respuestas; no se deben asumir
+UUID ni IDs fijos.
+
+### Casos de integración por módulo
+
+| Módulo | Flujo | Verificaciones |
+|---|---|---|
+| Auth | Registro y login | Status esperado, usuario retornado, JWT válido, password nunca retornado |
+| Auth | `/auth/me` sin/con token | `401` sin token y datos del usuario con token válido |
+| Usuarios | Invitación y registro de empleado | Código válido, rol `EMPLEADO` y herencia de `local_id` |
+| Productos | Categoría → producto → listado | Persistencia, asociación de insumos y soft delete |
+| Inventario | Insumo → entrada → salida | Stock actualizado, movimientos persistidos y rechazo de stock insuficiente |
+| Pedidos | Crear → estados → completar | Total calculado en servidor, transición válida y pago persistido |
+| Pedidos | Acceso por local | Un usuario no puede consultar o modificar pedidos de otro local |
+| Reportes | Pedido completado → resumen | Ingresos, costos, utilidad, margen y ticket promedio coherentes |
+| Historial | Mutación exitosa → consulta | Se registra usuario, local, acción, entidad e identificador |
+
+### Estrategias Bottom-Up y Top-Down
+
+La imagen de referencia describe una integración incremental. Para este
+proyecto, una adaptación Bottom-Up es:
+
+1. **Primera fase:** integrar las unidades base `E`, `F`, `G` y `D`:
+   autenticación/middleware, acceso a base de datos, servicios de dominio y
+   rutas o controladores.
+2. **Segunda fase:** integrar `B` con `E`, `C` con `F` y `C` con `G`:
+   conectar controladores con servicios, persistencia y contratos HTTP.
+3. **Tercera fase:** integrar `A` con `B`, `A` con `C` y `A` con `D`:
+   validar los flujos completos desde el frontend, incluyendo sesión,
+   negocio, base de datos y respuesta visible.
+
+En Top-Down se parte de la aplicación completa y se reemplazan o validan
+dependencias por niveles:
+
+- **Profundidad:** registro/login → creación de catálogo → pedido →
+  completado → reportes e historial.
+- **Anchura:** autenticar; después validar en paralelo usuarios, productos,
+  inventario, pedidos, reportes e historial.
+
+### Criterios de aceptación
+
+- El status HTTP y el JSON coinciden con lo que espera el service del
+  frontend.
+- La información queda persistida y puede recuperarse en una segunda
+  petición.
+- Las restricciones de rol y `local_id` se cumplen en backend, aunque el
+  frontend oculte botones.
+- Cada mutación exitosa genera el registro de auditoría esperado.
+- Un error de base de datos o de validación se devuelve como error explícito;
+  no se considera exitoso un flujo que solo actualiza la interfaz.

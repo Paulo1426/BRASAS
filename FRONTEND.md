@@ -135,3 +135,105 @@ Los servicios de cada feature consumen rutas relativas a `/api/v1`:
 La autorización de la interfaz mejora la experiencia de usuario, pero la
 autorización definitiva siempre corresponde al backend.
 
+## Guía para pruebas de integración
+
+Este documento sirve como referencia para probar la integración entre los
+componentes React, los stores Zustand, el cliente Axios y la API. Una prueba
+de integración no debe validar únicamente que una pantalla se renderiza:
+debe comprobar que una acción del usuario genera la petición correcta, que la
+respuesta actualiza el store y que la interfaz refleja el nuevo estado.
+
+### Flujo que se debe probar
+
+```text
+Usuario
+  → componente de la feature
+  → store Zustand
+  → service de la feature
+  → services/api.js
+  → API REST /api/v1
+  → respuesta HTTP
+  → store
+  → render actualizado
+```
+
+Para pruebas contra el backend real se deben levantar ambos procesos:
+
+```bash
+# terminal 1
+cd apps/api
+npm run dev
+
+# terminal 2
+cd apps/web
+npm run dev
+```
+
+La URL esperada del frontend es `http://localhost:5173` y la de la API
+`http://localhost:3000/api/v1`. Si se ejecutan pruebas automatizadas desde
+otra URL, el origen debe estar permitido por CORS.
+
+### Preparación de datos
+
+1. Crear un usuario `JEFE` mediante `/register`.
+2. Iniciar sesión y conservar el JWT y el `local_id` devueltos.
+3. Crear un insumo y una categoría.
+4. Crear un producto asociado a la categoría y, si aplica, a los insumos.
+5. Crear un usuario `EMPLEADO` usando el código de invitación del jefe.
+6. Reutilizar los identificadores creados en los casos dependientes y limpiar
+   los datos de prueba al finalizar.
+
+No se debe guardar un token fijo en la documentación ni en el repositorio.
+Cada ejecución debe obtenerlo desde el login y verificar que el frontend lo
+envía como `Authorization: Bearer <token>`.
+
+### Casos de integración por feature
+
+| Feature | Acción UI | Petición esperada | Resultado a verificar |
+|---|---|---|---|
+| Auth | Enviar login válido | `POST /auth/login` | `useAuthStore` queda autenticado, se guardan usuario/token y se navega al dashboard |
+| Auth | Login inválido | `POST /auth/login` | Se muestra el mensaje de error y no se crea sesión |
+| Auth | Recargar una sesión válida | `GET /auth/me` o recuperación local | La ruta protegida sigue disponible |
+| Menú | Crear producto | `POST /productos` | El producto aparece en la lista y conserva precio, costo y categoría |
+| Inventario | Registrar entrada | `POST /inventario/entrada` | El stock mostrado se incrementa y el movimiento aparece en el historial |
+| Inventario | Registrar salida | `POST /inventario/salida` | El stock disminuye; con stock insuficiente se muestra el error del backend |
+| Pedidos | Crear pedido | `POST /pedidos` | Se muestra el pedido con total calculado por el backend |
+| Pedidos | Cambiar estado | `PUT /pedidos/:id/estado` | La tarjeta cambia de estado y el pago, si existe, permanece visible |
+| Dashboard | Cambiar período | `GET /reportes/resumen?...` | Se actualizan KPIs, utilidad, margen y comparación del período |
+| Analítica | Consultar costos | `GET /productos/costos` | La tabla y los gráficos reflejan costos y márgenes recibidos |
+| Usuarios | Generar invitación | `POST /usuarios/codigo-invitacion` | El código se muestra y permite registrar un empleado |
+| Historial | Consultar acciones | `GET /historial` | Se muestran las mutaciones realizadas con filtros y paginación |
+
+### Validaciones de sesión y roles
+
+- Sin token, acceder a `/dashboard` debe redirigir a `/login`.
+- Un `EMPLEADO` debe poder usar `/empleado/pedidos` y
+  `/empleado/menu`, pero no debe ver pantallas exclusivas de jefe o admin.
+- Un `JEFE` debe ver únicamente la información de su local.
+- Un `ADMIN` debe poder acceder a `/admin/usuarios`.
+- Cualquier `401` de la API debe limpiar `brasas_token` y `brasas_user` y
+  enviar al usuario a `/login`.
+- Un `403` debe mostrarse como permiso insuficiente sin borrar una sesión
+  válida.
+
+### Estrategias de integración
+
+La estrategia incremental ascendente (Bottom-Up) puede aplicarse así:
+
+1. Probar primero servicios y stores independientes: auth, menú, inventario
+   y pedidos.
+2. Integrar cada service con `services/api.js` y verificar método, URL,
+   parámetros, cuerpo y encabezado JWT.
+3. Integrar cada store con sus componentes y comprobar loading, errores y
+   actualización de datos.
+4. Integrar las páginas con `DashboardLayout`, router y protección de roles.
+
+La estrategia incremental descendente (Top-Down) parte de la interfaz:
+
+- **Profundidad:** landing/login → autenticación → dashboard → menú,
+  inventario, pedidos e historial, completando una rama funcional.
+- **Anchura:** login, dashboard, menú, inventario, pedidos, analítica,
+  usuarios e historial, completando cada nivel antes de pasar al siguiente.
+
+En ambos casos se deben conservar evidencias de request, response, estado
+final y comportamiento visible.
