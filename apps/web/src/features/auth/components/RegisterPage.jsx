@@ -22,7 +22,7 @@ const Input = ({ icon: Icon, type = "text", ...props }) => (
     <input
       type={type}
       {...props}
-      className="w-full bg-white/[0.03] border border-white/[0.07] rounded-xl py-3 text-sm text-[#f5f0eb] placeholder:text-white/20 outline-none focus:border-orange-500/40 focus:bg-orange-500/[0.03] focus:ring-1 focus:ring-orange-500/20 transition-all duration-200"
+      className="w-full bg-white/[0.03] border border-white/[0.07] rounded-xl py-3 text-sm text-[#2a1810] placeholder:text-white/20 outline-none focus:border-orange-500/40 focus:bg-orange-500/[0.03] focus:ring-1 focus:ring-orange-500/20 transition-all duration-200"
       style={{ paddingLeft: Icon ? "2.75rem" : "1rem", paddingRight: "1rem" }}
     />
   </div>
@@ -37,7 +37,7 @@ const PasswordInput = ({ label, ...props }) => {
         <input
           type={show ? "text" : "password"}
           {...props}
-          className="w-full bg-white/[0.03] border border-white/[0.07] rounded-xl pl-4 pr-12 py-3 text-sm text-[#f5f0eb] placeholder:text-white/20 outline-none focus:border-orange-500/40 focus:bg-orange-500/[0.03] focus:ring-1 focus:ring-orange-500/20 transition-all duration-200"
+          className="w-full bg-white/[0.03] border border-white/[0.07] rounded-xl pl-4 pr-12 py-3 text-sm text-[#2a1810] placeholder:text-white/20 outline-none focus:border-orange-500/40 focus:bg-orange-500/[0.03] focus:ring-1 focus:ring-orange-500/20 transition-all duration-200"
         />
         <button type="button" onClick={() => setShow(!show)}
           className="absolute right-4 top-1/2 -translate-y-1/2 text-white/25 hover:text-white/60 transition-colors">
@@ -82,11 +82,11 @@ export const RegisterPage = () => {
   const switchTipo = (t) => { setTipo(t); clearError(); setValidationError(""); setCodigo(""); };
 
   return (
-    <div className="min-h-screen bg-[#080807] flex items-stretch">
+    <div className="min-h-screen bg-[#dccfb1] flex items-stretch">
       {/* ── Brand panel ── */}
       <div className="hidden lg:flex lg:w-[42%] relative flex-col justify-between p-14 overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1200&auto=format&fit=crop')] bg-cover bg-center opacity-25" />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1a0a00] via-[#0d0602] to-[#080807]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#e1d4b8] via-[#dccfb1] to-[#dccfb1]" />
         <div className="absolute inset-0 bg-gradient-to-t from-orange-950/60 via-transparent to-transparent" />
 
         {/* Decorative ember glow */}
@@ -134,14 +134,14 @@ export const RegisterPage = () => {
 
       {/* ── Form panel ── */}
       <div className="flex-1 flex flex-col justify-center px-6 py-12 sm:px-12 lg:px-16 relative">
-        <div className="absolute inset-0 bg-[#0a0a09]" />
+        <div className="absolute inset-0 bg-[#e6d9bd]" />
         <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-orange-600/[0.04] rounded-full blur-[120px] pointer-events-none" />
 
         <div className="relative z-10 w-full max-w-sm mx-auto">
 
           {/* Header */}
           <div className="mb-8">
-            <h1 className="text-2xl font-bold text-[#f5f0eb] mb-1" style={{ fontFamily: "Georgia, serif" }}>
+            <h1 className="text-2xl font-bold text-[#2a1810] mb-1" style={{ fontFamily: "Georgia, serif" }}>
               Crear cuenta
             </h1>
             <p className="text-sm text-white/30">¿Cómo querés unirte?</p>
@@ -197,13 +197,13 @@ export const RegisterPage = () => {
                   placeholder="000000"
                   value={codigo}
                   onChange={e => setCodigo(e.target.value.replace(/\D/g, "").slice(0, 6))}
-                  className="w-full bg-white/[0.03] border border-white/[0.07] rounded-xl px-4 py-3 text-sm text-[#f5f0eb] placeholder:text-white/20 outline-none focus:border-orange-500/40 focus:ring-1 focus:ring-orange-500/20 transition-all duration-200 tracking-[0.3em] text-center font-mono"
+                  className="w-full bg-white/[0.03] border border-white/[0.07] rounded-xl px-4 py-3 text-sm text-[#2a1810] placeholder:text-white/20 outline-none focus:border-orange-500/40 focus:ring-1 focus:ring-orange-500/20 transition-all duration-200 tracking-[0.3em] text-center font-mono"
                 />
               </Field>
             )}
 
             <button type="submit" disabled={isLoading}
-              className="w-full mt-2 py-3.5 rounded-xl bg-orange-600 hover:bg-orange-500 disabled:opacity-50 text-white text-sm font-semibold transition-all duration-200 shadow-lg shadow-orange-900/30 flex items-center justify-center gap-2">
+              className="w-full mt-2 py-3.5 rounded-xl bg-orange-600 hover:bg-orange-500 disabled:opacity-50 text-[#fff9ec] text-sm font-semibold transition-all duration-200 shadow-lg shadow-orange-900/30 flex items-center justify-center gap-2">
               {isLoading ? (
                 <><span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />Creando cuenta...</>
               ) : (

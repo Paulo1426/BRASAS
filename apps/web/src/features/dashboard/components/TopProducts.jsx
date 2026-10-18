@@ -5,7 +5,7 @@ export const TopProducts = ({ products }) => {
 
   return (
     <div className="glass rounded-2xl p-5 mb-5 animate-fade-in-up opacity-0">
-      <h3 className="text-lg font-heading font-bold text-[#f5f0eb] flex items-center gap-2 mb-4">
+      <h3 className="text-lg font-heading font-bold text-[#2a1810] flex items-center gap-2 mb-4">
         <FaChartLine className="text-orange-400" />
         Productos más rentables
       </h3>
@@ -14,7 +14,7 @@ export const TopProducts = ({ products }) => {
           <div key={i} className="flex items-center justify-between py-2 px-3 rounded-xl bg-white/[0.02]">
             <div className="flex items-center gap-3">
               <span className="text-xs font-number text-white/30 w-5">{i + 1}</span>
-              <span className="text-sm text-[#f5f0eb] font-body">{prod.nombre}</span>
+              <span className="text-sm text-[#2a1810] font-body">{prod.nombre}</span>
             </div>
             <div className="flex items-center gap-4">
               <span className="text-xs text-white/40 font-number">${prod.precio_venta?.toLocaleString()}</span>

@@ -43,7 +43,7 @@ const DashboardPage = () => {
             <FaFire className="text-orange-400 text-lg" />
           </div>
           <div>
-            <h1 className="text-2xl font-bold text-[#f5f0eb]" style={{ fontFamily: "Georgia, serif" }}>
+            <h1 className="text-2xl font-bold text-[#2a1810]" style={{ fontFamily: "Georgia, serif" }}>
               Dashboard
             </h1>
             <p className="text-xs text-white/30">

@@ -15,7 +15,7 @@ export const ImpactMetrics = () => (
         {metrics.map((m, i) => (
           <div key={i}
             className="bg-white/[0.02] border border-white/[0.06] rounded-2xl p-6 text-center hover:border-white/[0.1] transition-colors">
-            <p className="text-3xl md:text-4xl font-bold text-[#f5f0eb] mb-1"
+            <p className="text-3xl md:text-4xl font-bold text-[#2a1810] mb-1"
               style={{ fontFamily: "Georgia, serif" }}>
               {m.value}
             </p>

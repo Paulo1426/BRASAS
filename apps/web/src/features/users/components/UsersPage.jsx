@@ -89,7 +89,7 @@ export const UsersPage = () => {
         <h1 className="text-2xl font-bold text-white">Gestión de Usuarios</h1>
         <button
           onClick={() => handleOpenModal()}
-          className="flex items-center gap-2 px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-500 transition-colors"
+          className="flex items-center gap-2 px-4 py-2 bg-orange-600 text-[#fff9ec] rounded-lg hover:bg-orange-500 transition-colors"
         >
           <FaUserPlus /> Nuevo Usuario
         </button>
@@ -104,7 +104,7 @@ export const UsersPage = () => {
         </div>
       )}
 
-      <div className="bg-[#0c0c0c] rounded-xl border border-white/10 overflow-hidden">
+      <div className="bg-[#e6d9bd] rounded-xl border border-white/10 overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead className="bg-white/5">
@@ -170,7 +170,7 @@ export const UsersPage = () => {
 
       {showModal && (
         <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
-          <div className="bg-[#0c0c0c] p-6 rounded-xl border border-white/10 w-full max-w-md">
+          <div className="bg-[#e6d9bd] p-6 rounded-xl border border-white/10 w-full max-w-md">
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-xl font-bold text-white">
                 {editingUser ? "Editar Usuario" : "Nuevo Usuario"}
@@ -224,7 +224,7 @@ export const UsersPage = () => {
                   className="w-full p-3 bg-white/5 border border-white/10 rounded-lg text-white focus:border-orange-500/50 focus:outline-none"
                 >
                   {ROLES.map((rol) => (
-                    <option key={rol.value} value={rol.value} className="bg-[#0c0c0c]">
+                    <option key={rol.value} value={rol.value} className="bg-[#e6d9bd]">
                       {rol.label}
                     </option>
                   ))}
@@ -235,7 +235,7 @@ export const UsersPage = () => {
                 <button 
                   type="submit" 
                   disabled={isLoading}
-                  className="flex-1 p-3 bg-orange-600 text-white rounded-lg hover:bg-orange-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  className="flex-1 p-3 bg-orange-600 text-[#fff9ec] rounded-lg hover:bg-orange-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                 >
                   {isLoading ? "Guardando..." : editingUser ? "Guardar" : "Crear"}
                 </button>

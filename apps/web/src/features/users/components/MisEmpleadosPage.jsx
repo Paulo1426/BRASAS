@@ -41,7 +41,7 @@ export const MisEmpleadosPage = () => {
             <FaUsers className="text-xl text-orange-400" />
           </div>
           <div>
-            <h1 className="text-2xl md:text-3xl font-heading font-bold text-[#f5f0eb]">Mi Equipo</h1>
+            <h1 className="text-2xl md:text-3xl font-heading font-bold text-[#2a1810]">Mi Equipo</h1>
             <p className="text-sm text-white/40 font-body">Empleados registrados en tu local</p>
           </div>
         </div>
@@ -88,7 +88,7 @@ export const MisEmpleadosPage = () => {
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2">
-                        <p className="text-sm font-medium text-[#f5f0eb] font-body truncate">{emp.nombre}</p>
+                        <p className="text-sm font-medium text-[#2a1810] font-body truncate">{emp.nombre}</p>
                         <FaCircle className={`text-[6px] shrink-0 ${emp.activo ? "text-green-400" : "text-red-400"}`} />
                       </div>
                       <div className="flex items-center gap-1.5 mt-0.5">

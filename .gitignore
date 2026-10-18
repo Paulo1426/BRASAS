@@ -33,3 +33,7 @@ dist/
 *.user
 *.package.json
 *.package-lock.json
+# graphify / claude
+graphify-out/
+.claude/
+CLAUDE.md

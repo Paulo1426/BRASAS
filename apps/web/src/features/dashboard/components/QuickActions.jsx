@@ -19,7 +19,7 @@ export const QuickActions = () => {
                 <a.icon className="text-lg text-orange-400" />
               </div>
               <div>
-                <p className="text-sm font-medium text-[#f5f0eb] font-body">{a.title}</p>
+                <p className="text-sm font-medium text-[#2a1810] font-body">{a.title}</p>
                 <p className="text-xs text-white/40 font-body mt-0.5">{a.desc}</p>
               </div>
             </div>

@@ -57,7 +57,7 @@ const ProductPicker = ({ value, onChange, usedIds }) => {
     <button key={item.id} type="button"
       onClick={() => handleSelect(item.id)}
       className="w-full flex items-center justify-between px-4 py-2.5 hover:bg-white/[0.05] transition-colors text-left">
-      <p className="text-sm text-[#f5f0eb]">{item.nombre}</p>
+      <p className="text-sm text-[#2a1810]">{item.nombre}</p>
       <p className="text-xs text-orange-400 font-mono shrink-0 ml-3">
         ${item.precio_venta?.toLocaleString("es-CO")}
       </p>
@@ -68,7 +68,7 @@ const ProductPicker = ({ value, onChange, usedIds }) => {
     return (
       <div className="flex-1 flex items-center justify-between bg-white/[0.04] border border-white/[0.07] rounded-xl px-4 py-2.5">
         <div>
-          <p className="text-sm text-[#f5f0eb] font-medium">{selected.nombre}</p>
+          <p className="text-sm text-[#2a1810] font-medium">{selected.nombre}</p>
           <p className="text-xs text-white/35 font-mono">${selected.precio_venta?.toLocaleString("es-CO")}</p>
         </div>
         <button type="button" onClick={() => onChange("")}
@@ -88,14 +88,14 @@ const ProductPicker = ({ value, onChange, usedIds }) => {
       </button>
 
       {open && (
-        <div className="absolute z-50 top-full left-0 mt-1 bg-[#111] border border-white/[0.08] rounded-xl shadow-2xl overflow-hidden" style={{ width: "320px" }}>
+        <div className="absolute z-50 top-full left-0 mt-1 bg-[#e1d4b8] border border-white/[0.08] rounded-xl shadow-2xl overflow-hidden" style={{ width: "320px" }}>
           {/* Buscador */}
           <div className="p-2 border-b border-white/[0.04]">
             <div className="relative">
               <FaSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-white/20 text-xs" />
               <input ref={inputRef} type="text" placeholder="Buscar plato..." value={search}
                 onChange={e => { setSearch(e.target.value); setCategoriaActiva(null); }}
-                className="w-full bg-white/[0.04] rounded-lg pl-8 pr-3 py-2 text-xs text-[#f5f0eb] placeholder:text-white/20 focus:outline-none" />
+                className="w-full bg-white/[0.04] rounded-lg pl-8 pr-3 py-2 text-xs text-[#2a1810] placeholder:text-white/20 focus:outline-none" />
               {search && (
                 <button type="button" onClick={() => setSearch("")} className="absolute right-2 top-1/2 -translate-y-1/2 text-white/20 hover:text-white/50">
                   <FaTimes className="text-[10px]" />
@@ -172,7 +172,7 @@ export const OrderCreateModal = ({ isOpen, isLoading, onSubmit, onClose }) => {
     <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-4">
       <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={onClose} />
 
-      <div className="relative bg-[#0f0f0e] border border-white/[0.08] rounded-2xl w-full max-w-4xl shadow-2xl shadow-black/60 animate-fade-in-up flex flex-col max-h-[92vh] min-h-[70vh]">
+      <div className="relative bg-[#dccfb1] border border-white/[0.08] rounded-2xl w-full max-w-4xl shadow-2xl shadow-black/60 animate-fade-in-up flex flex-col max-h-[92vh] min-h-[70vh]">
 
         {/* Header */}
         <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-white/[0.06] shrink-0">
@@ -181,7 +181,7 @@ export const OrderCreateModal = ({ isOpen, isLoading, onSubmit, onClose }) => {
               <FaShoppingCart className="text-blue-400 text-sm" />
             </div>
             <div>
-              <h2 className="text-base font-bold text-[#f5f0eb]" style={{ fontFamily: "Georgia, serif" }}>
+              <h2 className="text-base font-bold text-[#2a1810]" style={{ fontFamily: "Georgia, serif" }}>
                 Nuevo Pedido
               </h2>
               <p className="text-xs text-white/30">Seleccioná los platos</p>
@@ -209,7 +209,7 @@ export const OrderCreateModal = ({ isOpen, isLoading, onSubmit, onClose }) => {
                   className="w-9 h-10 flex items-center justify-center text-white/30 hover:text-white hover:bg-white/[0.06] transition-all">
                   <FaMinus className="text-[10px]" />
                 </button>
-                <span className="w-8 text-center text-sm font-mono text-[#f5f0eb]">{linea.cantidad}</span>
+                <span className="w-8 text-center text-sm font-mono text-[#2a1810]">{linea.cantidad}</span>
                 <button type="button" onClick={() => setCantidad(idx, linea.cantidad + 1)}
                   className="w-9 h-10 flex items-center justify-center text-white/30 hover:text-white hover:bg-white/[0.06] transition-all">
                   <FaPlus className="text-[10px]" />
@@ -249,7 +249,7 @@ export const OrderCreateModal = ({ isOpen, isLoading, onSubmit, onClose }) => {
           {total > 0 && (
             <div className="flex items-center justify-between mb-3">
               <span className="text-xs text-white/35 uppercase tracking-wider">Total estimado</span>
-              <span className="text-lg font-bold text-[#f5f0eb] font-mono">
+              <span className="text-lg font-bold text-[#2a1810] font-mono">
                 ${total.toLocaleString("es-CO")}
               </span>
             </div>
@@ -260,7 +260,7 @@ export const OrderCreateModal = ({ isOpen, isLoading, onSubmit, onClose }) => {
               Cancelar
             </button>
             <button onClick={handleSubmit} disabled={isLoading || !lineas.some(l => l.producto_id)}
-              className="flex-1 py-2.5 rounded-xl text-sm font-semibold text-white bg-orange-600 hover:bg-orange-500 disabled:opacity-40 transition-all shadow-lg shadow-orange-900/30 flex items-center justify-center gap-2">
+              className="flex-1 py-2.5 rounded-xl text-sm font-semibold text-[#fff9ec] bg-orange-600 hover:bg-orange-500 disabled:opacity-40 transition-all shadow-lg shadow-orange-900/30 flex items-center justify-center gap-2">
               {isLoading && <span className="w-3.5 h-3.5 border-2 border-white/30 border-t-white rounded-full animate-spin" />}
               {isLoading ? "Creando..." : "Crear pedido"}
             </button>

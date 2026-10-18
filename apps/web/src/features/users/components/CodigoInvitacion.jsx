@@ -46,7 +46,7 @@ export const CodigoInvitacion = () => {
           <FaKey className="text-orange-400" />
         </div>
         <div>
-          <h3 className="text-sm font-semibold text-[#f5f0eb] font-body">Código de empleados</h3>
+          <h3 className="text-sm font-semibold text-[#2a1810] font-body">Código de empleados</h3>
           <p className="text-xs text-white/30 font-body">Comparte este código para que tus empleados se registren</p>
         </div>
       </div>
@@ -77,7 +77,7 @@ export const CodigoInvitacion = () => {
         <button
           onClick={generar}
           disabled={loading}
-          className="flex items-center gap-2 px-4 py-2.5 bg-orange-600 hover:bg-orange-500 disabled:opacity-50 text-white rounded-xl text-sm font-semibold transition-all font-body"
+          className="flex items-center gap-2 px-4 py-2.5 bg-orange-600 hover:bg-orange-500 disabled:opacity-50 text-[#fff9ec] rounded-xl text-sm font-semibold transition-all font-body"
         >
           <FaSync className={`text-xs ${loading ? "animate-spin" : ""}`} />
           {codigo ? "Regenerar" : "Generar"}

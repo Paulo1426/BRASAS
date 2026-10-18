@@ -17,7 +17,7 @@ const initial = {
 };
 
 /* ── Shared styles ── */
-const inputCls = "w-full bg-white/[0.04] border border-white/[0.07] rounded-xl px-4 py-2.5 text-sm text-[#f5f0eb] placeholder:text-white/20 outline-none focus:border-orange-500/40 focus:ring-1 focus:ring-orange-500/20 transition-all";
+const inputCls = "w-full bg-white/[0.04] border border-white/[0.07] rounded-xl px-4 py-2.5 text-sm text-[#2a1810] placeholder:text-white/20 outline-none focus:border-orange-500/40 focus:ring-1 focus:ring-orange-500/20 transition-all";
 const selectCls = `${inputCls} appearance-none cursor-pointer`;
 
 const Field = ({ label, required, children }) => (
@@ -92,7 +92,7 @@ const InventoryModal = ({ isOpen, onClose, onAdd, onEdit, editing }) => {
     <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-4">
       <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={onClose} />
 
-      <div className="relative bg-[#0f0f0e] border border-white/[0.08] rounded-2xl w-full max-w-md shadow-2xl shadow-black/60 animate-fade-in-up">
+      <div className="relative bg-[#dccfb1] border border-white/[0.08] rounded-2xl w-full max-w-md shadow-2xl shadow-black/60 animate-fade-in-up">
 
         {/* Header */}
         <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-white/[0.06]">
@@ -101,7 +101,7 @@ const InventoryModal = ({ isOpen, onClose, onAdd, onEdit, editing }) => {
               <FaBox className="text-emerald-400 text-sm" />
             </div>
             <div>
-              <h2 className="text-base font-bold text-[#f5f0eb]" style={{ fontFamily: "Georgia, serif" }}>
+              <h2 className="text-base font-bold text-[#2a1810]" style={{ fontFamily: "Georgia, serif" }}>
                 {editing ? "Editar Insumo" : "Nuevo Insumo"}
               </h2>
               <p className="text-xs text-white/30">
@@ -133,14 +133,14 @@ const InventoryModal = ({ isOpen, onClose, onAdd, onEdit, editing }) => {
             <Field label="Tipo" required>
               <select value={form.tipo} onChange={e => set("tipo", e.target.value)} className={selectCls}>
                 {TIPOS.map(t => (
-                  <option key={t.value} value={t.value} className="bg-[#0f0f0e]">{t.label}</option>
+                  <option key={t.value} value={t.value} className="bg-[#dccfb1]">{t.label}</option>
                 ))}
               </select>
             </Field>
             <Field label="Unidad" required>
               <select value={form.unidad_medida} onChange={e => set("unidad_medida", e.target.value)} className={selectCls}>
                 {UNIDADES.map(u => (
-                  <option key={u} value={u} className="bg-[#0f0f0e]">{u}</option>
+                  <option key={u} value={u} className="bg-[#dccfb1]">{u}</option>
                 ))}
               </select>
             </Field>
@@ -171,7 +171,7 @@ const InventoryModal = ({ isOpen, onClose, onAdd, onEdit, editing }) => {
               Cancelar
             </button>
             <button type="submit" disabled={submitting}
-              className="flex-1 py-2.5 rounded-xl text-sm font-semibold text-white bg-orange-600 hover:bg-orange-500 disabled:opacity-50 transition-all shadow-lg shadow-orange-900/30 flex items-center justify-center gap-2">
+              className="flex-1 py-2.5 rounded-xl text-sm font-semibold text-[#fff9ec] bg-orange-600 hover:bg-orange-500 disabled:opacity-50 transition-all shadow-lg shadow-orange-900/30 flex items-center justify-center gap-2">
               {submitting && <span className="w-3.5 h-3.5 border-2 border-white/30 border-t-white rounded-full animate-spin" />}
               {submitting ? (editing ? "Guardando..." : "Creando...") : (editing ? "Guardar cambios" : "Crear insumo")}
             </button>

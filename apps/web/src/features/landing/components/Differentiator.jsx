@@ -13,7 +13,7 @@ export const Differentiator = () => {
           <div className="w-16 h-16 rounded-full bg-orange-500/10 border border-orange-500/20 flex items-center justify-center mx-auto mb-6">
             <FiPieChart className="text-3xl text-orange-400" />
           </div>
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-[#f5f0eb] mb-6">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-[#2a1810] mb-6">
             No es un sistema de pedidos. <br />
             <span className="text-orange-400">Es tu director financiero digital.</span>
           </h2>
@@ -24,7 +24,7 @@ export const Differentiator = () => {
           </p>
           <button
             onClick={() => navigate("/register")}
-            className="group px-10 py-4 bg-orange-600 text-white rounded-2xl font-bold text-lg hover:bg-orange-500 transition-all shadow-xl shadow-orange-600/25 hover:shadow-orange-600/40 inline-flex items-center gap-3"
+            className="group px-10 py-4 bg-orange-600 text-[#fff9ec] rounded-2xl font-bold text-lg hover:bg-orange-500 transition-all shadow-xl shadow-orange-600/25 hover:shadow-orange-600/40 inline-flex items-center gap-3"
           >
             Descubrí tu rentabilidad real
             <FaArrowRight className="group-hover:translate-x-1 transition-transform" />

@@ -18,8 +18,8 @@ const TooltipCustom = ({ active, payload, label, data }) => {
   const ganancia = ingresos - costos;
 
   return (
-    <div className="bg-[#1a1a1a] border border-white/10 rounded-xl p-3 text-xs font-body space-y-1 min-w-[160px]">
-      <p className="text-[#f5f0eb] font-semibold">{label} {!esReal && <span className="text-white/30">(estimado)</span>}</p>
+    <div className="bg-[#d8c9a8] border border-white/10 rounded-xl p-3 text-xs font-body space-y-1 min-w-[160px]">
+      <p className="text-[#2a1810] font-semibold">{label} {!esReal && <span className="text-white/30">(estimado)</span>}</p>
       <p className="text-emerald-400">Vendido: {fmt(ingresos)}</p>
       <p className="text-red-400">Costos: {fmt(costos)}</p>
       <p className={`pt-1 border-t border-white/10 font-semibold ${ganancia >= 0 ? "text-emerald-300" : "text-red-300"}`}>
@@ -40,7 +40,7 @@ export const IngresoCostoBarChart = ({ meses = [] }) => {
 
   return (
     <div className="glass rounded-2xl p-5">
-      <h3 className="text-base font-heading font-bold text-[#f5f0eb] mb-0.5">
+      <h3 className="text-base font-heading font-bold text-[#2a1810] mb-0.5">
         Vendido vs Costos
       </h3>
       <p className="text-xs text-white/40 font-body mb-4">
@@ -69,7 +69,7 @@ export const IngresoCostoBarChart = ({ meses = [] }) => {
 
             <Bar dataKey="Vendido" radius={[3, 3, 0, 0]}>
               {data.map((entry, i) => (
-                <Cell key={i} fill="#34d399" opacity={entry.tipo === "real" ? 1 : 0.35} />
+                <Cell key={i} fill="#16a34a" opacity={entry.tipo === "real" ? 1 : 0.35} />
               ))}
             </Bar>
             <Bar dataKey="Costos" radius={[3, 3, 0, 0]}>

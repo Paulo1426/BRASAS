@@ -22,7 +22,7 @@ export const ProblemSolution = () => (
           <span className="text-xs font-medium text-red-400/80 bg-red-500/10 px-3 py-1 rounded-full font-body">
             El problema
           </span>
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-[#f5f0eb] mt-4 mb-6">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-[#2a1810] mt-4 mb-6">
             El 60% de los restaurantes no sabe cuál es su margen real por plato
           </h2>
           <p className="text-white/50 font-body leading-relaxed mb-6">
@@ -45,7 +45,7 @@ export const ProblemSolution = () => (
             <span className="text-xs font-medium text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full font-body">
               La solución
             </span>
-            <h3 className="text-2xl font-heading font-bold text-[#f5f0eb] mt-4 mb-4">
+            <h3 className="text-2xl font-heading font-bold text-[#2a1810] mt-4 mb-4">
               Brasas OS te da el control financiero total
             </h3>
             <div className="space-y-4">
@@ -53,7 +53,7 @@ export const ProblemSolution = () => (
                 <div key={i} className="flex items-start gap-3">
                   <FaCheckCircle className="text-emerald-400/80 text-sm mt-0.5 shrink-0" />
                   <div>
-                    <p className="text-sm font-medium text-[#f5f0eb] font-body">{item.label}</p>
+                    <p className="text-sm font-medium text-[#2a1810] font-body">{item.label}</p>
                     <p className="text-xs text-white/40 font-body">{item.desc}</p>
                   </div>
                 </div>

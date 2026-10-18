@@ -30,7 +30,7 @@ const EstadoSelect = ({ value, onChange }) => {
       </button>
 
       {open && (
-        <div className="absolute z-50 top-full left-0 right-0 mt-1 bg-[#111] border border-white/[0.08] rounded-xl shadow-2xl overflow-hidden">
+        <div className="absolute z-50 top-full left-0 right-0 mt-1 bg-[#e1d4b8] border border-white/[0.08] rounded-xl shadow-2xl overflow-hidden">
           {ESTADOS.map(({ value: v, label }) => (
             <button key={v} type="button"
               onMouseDown={(e) => { e.preventDefault(); onChange(v); setOpen(false); }}
@@ -55,7 +55,7 @@ export const OrderFilters = ({ search, onSearchChange, estado, onEstadoChange })
         <FaSearch className="absolute left-3.5 top-1/2 -translate-y-1/2 text-white/20 text-sm" />
         <input type="text" placeholder="Buscar por ID..." value={search}
           onChange={(e) => onSearchChange(e.target.value)}
-          className="w-full bg-white/[0.04] border border-white/[0.06] rounded-xl pl-10 pr-4 py-2.5 text-sm text-[#f5f0eb] placeholder:text-white/20 focus:outline-none focus:border-orange-500/30 transition-colors font-body" />
+          className="w-full bg-white/[0.04] border border-white/[0.06] rounded-xl pl-10 pr-4 py-2.5 text-sm text-[#2a1810] placeholder:text-white/20 focus:outline-none focus:border-orange-500/30 transition-colors font-body" />
       </div>
       <EstadoSelect value={estado} onChange={onEstadoChange} />
     </div>
