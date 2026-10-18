@@ -40,7 +40,7 @@ export const HistoryPage = () => {
             <FaHistory className="text-xl text-orange-400" />
           </div>
           <div>
-            <h1 className="text-2xl md:text-3xl font-heading font-bold text-[#f5f0eb]">Historial</h1>
+            <h1 className="text-2xl md:text-3xl font-heading font-bold text-[#2a1810]">Historial</h1>
             <p className="text-sm text-white/40 font-body">{subtitulos[rol] || "Historial de acciones"}</p>
           </div>
         </div>

@@ -23,7 +23,7 @@ export const MenuTable = ({ items, onEdit, onDelete, onDuplicate }) => (
               <tr key={item.id} className="border-b border-white/[0.03] hover:bg-white/[0.02] transition-colors">
                 <td className="px-6 py-4">
                   <div className="flex items-center gap-2">
-                    <span className="text-sm font-medium text-[#f5f0eb] font-body">{item.nombre}</span>
+                    <span className="text-sm font-medium text-[#2a1810] font-body">{item.nombre}</span>
                     {porcentaje > 50 && <FaTrophy className="text-amber-400 text-xs" />}
                   </div>
                 </td>
@@ -33,7 +33,7 @@ export const MenuTable = ({ items, onEdit, onDelete, onDuplicate }) => (
                   )}
                 </td>
                 <td className="px-6 py-4 text-right">
-                  <span className="text-sm font-number text-[#f5f0eb]">${item.precio_venta?.toLocaleString()}</span>
+                  <span className="text-sm font-number text-[#2a1810]">${item.precio_venta?.toLocaleString()}</span>
                 </td>
                 <td className="px-6 py-4 text-right">
                   <span className="text-sm font-number text-white/50">

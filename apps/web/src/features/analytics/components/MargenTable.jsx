@@ -17,13 +17,13 @@ export const MargenTable = ({ productos }) => (
           <tr key={p.id || i} className="border-b border-white/[0.03] hover:bg-white/[0.02] transition-colors">
             <td className="px-5 py-3.5">
               <div className="flex items-center gap-2">
-                <span className="text-sm text-[#f5f0eb] font-body">{p.nombre}</span>
+                <span className="text-sm text-[#2a1810] font-body">{p.nombre}</span>
                 {p.margenPct > 50 && <FaTrophy className="text-amber-400 text-xs" />}
               </div>
               {p.categoria && <span className="text-[10px] text-white/30 font-body">{p.categoria}</span>}
             </td>
             <td className="px-5 py-3.5 text-right">
-              <span className="text-sm font-number text-[#f5f0eb]">${p.precio_venta?.toLocaleString()}</span>
+              <span className="text-sm font-number text-[#2a1810]">${p.precio_venta?.toLocaleString()}</span>
             </td>
             <td className="px-5 py-3.5 text-right">
               <span className="text-sm font-number text-white/50">
@@ -58,7 +58,7 @@ export const MargenMobileList = ({ productos }) => (
     {productos.map((p, i) => (
       <div key={p.id || i} className="flex items-center justify-between py-3 px-3 rounded-xl hover:bg-white/[0.02]">
         <div>
-          <p className="text-sm text-[#f5f0eb] font-body">{p.nombre}</p>
+          <p className="text-sm text-[#2a1810] font-body">{p.nombre}</p>
           <p className="text-xs text-white/30 font-body">${p.precio_venta?.toLocaleString()}</p>
         </div>
         <div className="text-right">

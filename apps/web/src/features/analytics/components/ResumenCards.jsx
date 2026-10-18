@@ -22,7 +22,7 @@ export const ResumenCards = ({ totalProductos, resumen }) => {
       {/* Productos en carta */}
       <div className="glass rounded-2xl p-4 xl:p-5">
         <p className="text-[10px] text-white/40 font-body uppercase tracking-wider mb-1">Productos</p>
-        <p className="text-2xl font-bold font-number text-[#f5f0eb]">{totalProductos}</p>
+        <p className="text-2xl font-bold font-number text-[#2a1810]">{totalProductos}</p>
         <p className="text-[10px] text-white/25 font-body mt-1">en carta</p>
       </div>
 
@@ -36,7 +36,7 @@ export const ResumenCards = ({ totalProductos, resumen }) => {
       {/* Ticket promedio */}
       <div className="glass rounded-2xl p-4 xl:p-5">
         <p className="text-[10px] text-white/40 font-body uppercase tracking-wider mb-1">Ticket prom.</p>
-        <p className="text-lg font-bold font-number text-[#f5f0eb]">{fmt(ticket_promedio)}</p>
+        <p className="text-lg font-bold font-number text-[#2a1810]">{fmt(ticket_promedio)}</p>
         <p className="text-[10px] text-white/25 font-body mt-1">por pedido</p>
       </div>
 

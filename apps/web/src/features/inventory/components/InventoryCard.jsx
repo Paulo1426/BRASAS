@@ -28,7 +28,7 @@ const InventoryCard = ({ item, onEdit, onDelete }) => {
           </div>
           <div className="min-w-0">
             <div className="flex items-center gap-2 mb-0.5">
-              <h3 className="text-base font-semibold text-[#f5f0eb] font-body truncate">{item.nombre}</h3>
+              <h3 className="text-base font-semibold text-[#2a1810] font-body truncate">{item.nombre}</h3>
               {cat
                 ? <span className={`text-[10px] px-2 py-0.5 rounded-full border font-medium ${cat.color}`}>{cat.label}</span>
                 : item.tipo && <span className="text-[10px] px-2 py-0.5 rounded-full border font-medium text-white/40 bg-white/[0.04] border-white/[0.08]">{item.tipo}</span>
@@ -45,7 +45,7 @@ const InventoryCard = ({ item, onEdit, onDelete }) => {
 
         <div className="flex items-center gap-6 lg:gap-8 flex-wrap">
           <div className="text-center min-w-[80px]">
-            <p className="text-2xl font-bold font-number text-[#f5f0eb]">{stockActual}</p>
+            <p className="text-2xl font-bold font-number text-[#2a1810]">{stockActual}</p>
             <p className="text-[10px] text-white/40 font-body uppercase tracking-wider">{unidad}</p>
           </div>
 
@@ -65,7 +65,7 @@ const InventoryCard = ({ item, onEdit, onDelete }) => {
 
           {totalValor > 0 && (
             <div className="text-center min-w-[90px]">
-              <p className="text-sm font-bold font-number text-[#f5f0eb]">${totalValor.toLocaleString()}</p>
+              <p className="text-sm font-bold font-number text-[#2a1810]">${totalValor.toLocaleString()}</p>
               <p className="text-[10px] text-white/30 font-body uppercase tracking-wider">Valor total</p>
             </div>
           )}

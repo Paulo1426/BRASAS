@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { FaTimes, FaUtensils, FaPlus, FaTrash, FaSearch, FaChevronDown } from "react-icons/fa";
 
-const inputCls  = "w-full bg-white/[0.04] border border-white/[0.07] rounded-xl px-4 py-2.5 text-sm text-[#f5f0eb] placeholder:text-white/20 outline-none focus:border-orange-500/40 focus:ring-1 focus:ring-orange-500/20 transition-all";
+const inputCls  = "w-full bg-white/[0.04] border border-white/[0.07] rounded-xl px-4 py-2.5 text-sm text-[#2a1810] placeholder:text-white/20 outline-none focus:border-orange-500/40 focus:ring-1 focus:ring-orange-500/20 transition-all";
 const selectCls = `${inputCls} appearance-none cursor-pointer`;
 
 const Field = ({ label, required, hint, children }) => (
@@ -36,7 +36,7 @@ const InsumoSelector = ({ value, allInsumos, onChange }) => {
         <button type="button" onClick={() => setOpen(true)}
           className="w-full flex items-center justify-between bg-white/[0.04] border border-white/[0.07] rounded-xl px-3 py-2 text-xs text-left transition-all hover:border-orange-500/30">
           {seleccionado ? (
-            <span className="text-[#f5f0eb] truncate">
+            <span className="text-[#2a1810] truncate">
               {seleccionado.nombre}
               <span className="text-white/30 ml-1">({seleccionado.unidad_medida})</span>
             </span>
@@ -47,14 +47,14 @@ const InsumoSelector = ({ value, allInsumos, onChange }) => {
         </button>
       ) : (
         /* Cuando está abierto: input de búsqueda + lista inline */
-        <div className="border border-orange-500/30 rounded-xl overflow-hidden bg-[#141413]">
+        <div className="border border-orange-500/30 rounded-xl overflow-hidden bg-[#e1d4b8]">
           <div className="flex items-center gap-2 px-3 py-2 border-b border-white/[0.06]">
             <FaSearch className="text-white/20 text-[10px] shrink-0" />
             <input autoFocus type="text" value={search}
               onChange={e => setSearch(e.target.value)}
               onKeyDown={e => e.key === "Escape" && setOpen(false)}
               placeholder="Buscar insumo..."
-              className="flex-1 bg-transparent text-xs text-[#f5f0eb] placeholder:text-white/20 outline-none" />
+              className="flex-1 bg-transparent text-xs text-[#2a1810] placeholder:text-white/20 outline-none" />
             <button type="button" onClick={() => { setOpen(false); setSearch(""); }}
               className="text-white/25 hover:text-white/60 transition-colors">
               <FaTimes className="text-[9px]" />
@@ -66,7 +66,7 @@ const InsumoSelector = ({ value, allInsumos, onChange }) => {
             ) : filtrados.map(i => (
               <button key={i.id} type="button" onClick={() => handleSelect(i.id)}
                 className={`w-full flex items-center justify-between px-3 py-2 text-xs text-left transition-colors hover:bg-white/[0.05] ${
-                  value === i.id ? "bg-orange-500/10 text-orange-400" : "text-[#f5f0eb]"
+                  value === i.id ? "bg-orange-500/10 text-orange-400" : "text-[#2a1810]"
                 }`}>
                 <span className="truncate">{i.nombre}</span>
                 <span className="text-white/25 shrink-0 ml-2 text-[10px]">{i.unidad_medida} · {i.tipo}</span>
@@ -138,7 +138,7 @@ export const MenuFormModal = ({ isOpen, editing, isLoading, allInsumos, categori
     <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-4">
       <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={onClose} />
 
-      <div className="relative bg-[#0f0f0e] border border-white/[0.08] rounded-2xl w-full max-w-2xl shadow-2xl shadow-black/60 animate-fade-in-up max-h-[95vh] flex flex-col">
+      <div className="relative bg-[#dccfb1] border border-white/[0.08] rounded-2xl w-full max-w-2xl shadow-2xl shadow-black/60 animate-fade-in-up max-h-[95vh] flex flex-col">
 
         {/* Header */}
         <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-white/[0.06] shrink-0">
@@ -147,7 +147,7 @@ export const MenuFormModal = ({ isOpen, editing, isLoading, allInsumos, categori
               <FaUtensils className="text-orange-400 text-sm" />
             </div>
             <div>
-              <h2 className="text-base font-bold text-[#f5f0eb]" style={{ fontFamily: "Georgia, serif" }}>
+              <h2 className="text-base font-bold text-[#2a1810]" style={{ fontFamily: "Georgia, serif" }}>
                 {editing ? "Editar Producto" : "Nuevo Producto"}
               </h2>
               <p className="text-xs text-white/30">
@@ -180,9 +180,9 @@ export const MenuFormModal = ({ isOpen, editing, isLoading, allInsumos, categori
                 <select value={form.categoria_id}
                   onChange={e => setForm(p => ({ ...p, categoria_id: e.target.value }))}
                   className={selectCls}>
-                  <option value="" className="bg-[#0f0f0e]">Sin categoría</option>
+                  <option value="" className="bg-[#dccfb1]">Sin categoría</option>
                   {(categorias || []).map(c => (
-                    <option key={c.id} value={c.id} className="bg-[#0f0f0e]">{c.nombre}</option>
+                    <option key={c.id} value={c.id} className="bg-[#dccfb1]">{c.nombre}</option>
                   ))}
                 </select>
               </Field>
@@ -257,7 +257,7 @@ export const MenuFormModal = ({ isOpen, editing, isLoading, allInsumos, categori
                           step={isUnidad(ins.insumo_id) ? "1" : "0.01"}
                           value={ins.cantidad_requerida}
                           onChange={e => updateInsumo(idx, "cantidad_requerida", Number(e.target.value))}
-                          className="w-20 bg-white/[0.04] border border-white/[0.07] rounded-lg px-2 py-1.5 text-xs text-[#f5f0eb] outline-none text-center focus:border-orange-500/40" />
+                          className="w-20 bg-white/[0.04] border border-white/[0.07] rounded-lg px-2 py-1.5 text-xs text-[#2a1810] outline-none text-center focus:border-orange-500/40" />
                         {ins.insumo_id && (
                           <span className="text-[10px] text-white/30">{getUnidad(ins.insumo_id)}</span>
                         )}
@@ -281,7 +281,7 @@ export const MenuFormModal = ({ isOpen, editing, isLoading, allInsumos, categori
             Cancelar
           </button>
           <button onClick={handleSubmit} disabled={isLoading}
-            className="flex-1 py-2.5 rounded-xl text-sm font-semibold text-white bg-orange-600 hover:bg-orange-500 disabled:opacity-50 transition-all shadow-lg shadow-orange-900/30 flex items-center justify-center gap-2">
+            className="flex-1 py-2.5 rounded-xl text-sm font-semibold text-[#fff9ec] bg-orange-600 hover:bg-orange-500 disabled:opacity-50 transition-all shadow-lg shadow-orange-900/30 flex items-center justify-center gap-2">
             {isLoading && <span className="w-3.5 h-3.5 border-2 border-white/30 border-t-white rounded-full animate-spin" />}
             {isLoading ? "Guardando..." : editing ? "Guardar cambios" : "Crear producto"}
           </button>

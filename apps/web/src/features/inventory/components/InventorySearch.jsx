@@ -10,7 +10,7 @@ const InventorySearch = ({ value, onChange, categoria, onCategoriaChange }) => (
         placeholder="Buscar insumo..."
         value={value}
         onChange={onChange}
-        className="w-full pl-10 pr-4 py-2.5 glass rounded-xl text-sm text-[#f5f0eb] placeholder-white/30 font-body outline-none transition-all duration-200 focus:border-orange-500/30"
+        className="w-full pl-10 pr-4 py-2.5 glass rounded-xl text-sm text-[#2a1810] placeholder-white/30 font-body outline-none transition-all duration-200 focus:border-orange-500/30"
       />
     </div>
     <div className="flex gap-2 flex-wrap">

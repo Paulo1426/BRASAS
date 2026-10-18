@@ -3,7 +3,7 @@ export const AuthFormHeader = ({ icon: Icon, title, subtitle }) => (
     <div className="w-16 h-16 glass rounded-full flex items-center justify-center mb-4">
       <Icon className="text-3xl text-orange-400" />
     </div>
-    <h2 className="text-4xl font-heading font-bold text-[#f5f0eb] mb-2">{title}</h2>
+    <h2 className="text-4xl font-heading font-bold text-[#2a1810] mb-2">{title}</h2>
     <p className="text-white/50 font-body">{subtitle}</p>
   </div>
 );

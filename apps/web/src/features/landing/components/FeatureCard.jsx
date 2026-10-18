@@ -5,7 +5,7 @@ export const FeatureCard = ({ icon: Icon, title, desc, accent }) => (
       <div className={`w-14 h-14 rounded-xl ${accent} flex items-center justify-center mb-5 group-hover:scale-110 transition-all duration-300`}>
         <Icon className="text-2xl text-orange-400" />
       </div>
-      <h3 className="text-xl font-heading font-bold text-[#f5f0eb] mb-3">{title}</h3>
+      <h3 className="text-xl font-heading font-bold text-[#2a1810] mb-3">{title}</h3>
       <p className="text-white/50 font-body leading-relaxed text-sm">{desc}</p>
     </div>
   </div>

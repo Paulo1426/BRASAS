@@ -62,12 +62,12 @@ export const PaymentModal = ({ isOpen, onClose, onConfirm, total = 0 }) => {
     <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
       <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={handleClose} />
 
-      <div className="relative bg-[#0f0f0e] border border-white/[0.08] rounded-2xl w-full max-w-sm shadow-2xl shadow-black/60 animate-fade-in-up">
+      <div className="relative bg-[#dccfb1] border border-white/[0.08] rounded-2xl w-full max-w-sm shadow-2xl shadow-black/60 animate-fade-in-up">
 
         {/* Header */}
         <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-white/[0.06]">
           <div>
-            <h2 className="text-base font-bold text-[#f5f0eb]" style={{ fontFamily: "Georgia, serif" }}>
+            <h2 className="text-base font-bold text-[#2a1810]" style={{ fontFamily: "Georgia, serif" }}>
               Método de pago
             </h2>
             <p className="text-xs text-white/30 mt-0.5">
@@ -121,7 +121,7 @@ export const PaymentModal = ({ isOpen, onClose, onConfirm, total = 0 }) => {
                       value={efectivo}
                       onChange={e => setEfectivo(e.target.value)}
                       placeholder="0"
-                      className="w-full bg-white/[0.04] border border-emerald-500/20 rounded-xl pl-7 pr-3 py-2.5 text-sm text-[#f5f0eb] placeholder:text-white/20 outline-none focus:border-emerald-500/40 font-mono transition-all"
+                      className="w-full bg-white/[0.04] border border-emerald-500/20 rounded-xl pl-7 pr-3 py-2.5 text-sm text-[#2a1810] placeholder:text-white/20 outline-none focus:border-emerald-500/40 font-mono transition-all"
                     />
                   </div>
                 </div>
@@ -137,7 +137,7 @@ export const PaymentModal = ({ isOpen, onClose, onConfirm, total = 0 }) => {
                       value={transferencia}
                       onChange={e => setTransferencia(e.target.value)}
                       placeholder="0"
-                      className="w-full bg-white/[0.04] border border-blue-500/20 rounded-xl pl-7 pr-3 py-2.5 text-sm text-[#f5f0eb] placeholder:text-white/20 outline-none focus:border-blue-500/40 font-mono transition-all"
+                      className="w-full bg-white/[0.04] border border-blue-500/20 rounded-xl pl-7 pr-3 py-2.5 text-sm text-[#2a1810] placeholder:text-white/20 outline-none focus:border-blue-500/40 font-mono transition-all"
                     />
                   </div>
                 </div>
@@ -170,7 +170,7 @@ export const PaymentModal = ({ isOpen, onClose, onConfirm, total = 0 }) => {
               Cancelar
             </button>
             <button type="button" onClick={handleConfirm} disabled={!canConfirm}
-              className="flex-1 py-2.5 rounded-xl text-sm font-semibold text-white bg-orange-600 hover:bg-orange-500 disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-lg shadow-orange-900/30">
+              className="flex-1 py-2.5 rounded-xl text-sm font-semibold text-[#fff9ec] bg-orange-600 hover:bg-orange-500 disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-lg shadow-orange-900/30">
               Confirmar
             </button>
           </div>

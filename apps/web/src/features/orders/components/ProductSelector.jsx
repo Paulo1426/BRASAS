@@ -63,10 +63,10 @@ export const ProductSelector = ({ value, onChange }) => {
         className={`w-full flex items-center justify-between px-4 py-2.5 text-sm hover:bg-white/[0.05] transition-colors ${value === item.id ? "bg-orange-500/10" : ""}`}
       >
         <div className="text-left">
-          <p className="text-[#f5f0eb] font-body text-xs">{item.nombre}</p>
+          <p className="text-[#2a1810] font-body text-xs">{item.nombre}</p>
         </div>
         <div className="text-right shrink-0 ml-3">
-          <p className="text-xs font-number text-[#f5f0eb]">${item.precio_venta?.toLocaleString()}</p>
+          <p className="text-xs font-number text-[#2a1810]">${item.precio_venta?.toLocaleString()}</p>
           {item.costo_produccion != null && (
             <p className={`text-[10px] font-number ${margen > 0 ? "text-emerald-400/60" : "text-red-400/60"}`}>
               +${margen.toLocaleString()}
@@ -83,7 +83,7 @@ export const ProductSelector = ({ value, onChange }) => {
         className="w-full bg-white/[0.04] border border-white/[0.06] rounded-xl px-4 py-2.5 text-sm text-left flex items-center justify-between gap-2 hover:border-white/[0.12] transition-colors"
       >
         {selected
-          ? <span className="text-[#f5f0eb] font-body flex-1 truncate">{selected.nombre}</span>
+          ? <span className="text-[#2a1810] font-body flex-1 truncate">{selected.nombre}</span>
           : <span className="text-white/20 font-body flex-1">Seleccionar plato...</span>
         }
         <div className="flex items-center gap-1 shrink-0">
@@ -97,7 +97,7 @@ export const ProductSelector = ({ value, onChange }) => {
       </button>
 
       {open && (
-        <div className="absolute z-50 top-full left-0 right-0 mt-1 bg-[#111] border border-white/[0.08] rounded-xl shadow-2xl overflow-hidden animate-fade-in" style={{ minWidth: "280px" }}>
+        <div className="absolute z-50 top-full left-0 right-0 mt-1 bg-[#e1d4b8] border border-white/[0.08] rounded-xl shadow-2xl overflow-hidden animate-fade-in" style={{ minWidth: "280px" }}>
 
           {/* Buscador */}
           <div className="p-2 border-b border-white/[0.04]">
@@ -105,7 +105,7 @@ export const ProductSelector = ({ value, onChange }) => {
               <FaSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-white/20 text-xs" />
               <input ref={searchRef} type="text" placeholder="Buscar plato..." value={search}
                 onChange={(e) => { setSearch(e.target.value); setCategoriaActiva(null); }}
-                className="w-full bg-white/[0.04] rounded-lg pl-8 pr-3 py-2 text-xs text-[#f5f0eb] placeholder:text-white/20 focus:outline-none font-body" />
+                className="w-full bg-white/[0.04] rounded-lg pl-8 pr-3 py-2 text-xs text-[#2a1810] placeholder:text-white/20 focus:outline-none font-body" />
               {search && (
                 <button onClick={() => setSearch("")} className="absolute right-2 top-1/2 -translate-y-1/2 text-white/20 hover:text-white/50">
                   <FaTimes className="text-[10px]" />

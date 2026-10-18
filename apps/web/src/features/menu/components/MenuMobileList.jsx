@@ -6,12 +6,12 @@ export const MenuMobileList = ({ items, onEdit, onDelete, onDuplicate }) => (
         <div key={item.id} className="glass rounded-2xl p-4 glass-hover">
           <div className="flex items-start justify-between mb-3">
             <div>
-              <p className="text-[#f5f0eb] font-medium font-body">{item.nombre}</p>
+              <p className="text-[#2a1810] font-medium font-body">{item.nombre}</p>
               {item.categoria && (
                 <span className="text-[10px] text-white/30 bg-white/[0.04] px-2 py-0.5 rounded-full font-body">{item.categoria}</span>
               )}
             </div>
-            <span className="text-lg font-number font-bold text-[#f5f0eb]">${item.precio_venta?.toLocaleString()}</span>
+            <span className="text-lg font-number font-bold text-[#2a1810]">${item.precio_venta?.toLocaleString()}</span>
           </div>
           {item.costo_produccion != null && (
             <div className="flex items-center gap-4 text-xs text-white/40 font-body pt-3 border-t border-white/[0.04]">

@@ -8,7 +8,7 @@ export const LandingFooter = () => (
           <div className="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center">
             <FaFire className="text-orange-400 text-xs" />
           </div>
-          <span className="font-heading font-bold text-[#f5f0eb]">Brasas OS</span>
+          <span className="font-heading font-bold text-[#2a1810]">Brasas OS</span>
         </div>
         <div className="flex items-center gap-8 text-sm text-white/30 font-body">
           <span>© {new Date().getFullYear()} Brasas OS</span>
