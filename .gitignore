@@ -32,7 +32,8 @@ dist/
 *.suo
 *.user
 *.package.json
-*.package-lock.json
+package-lock.json
+
 # env y resultados de pruebas
 .env.*
 apps/api/coverage/
