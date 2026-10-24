@@ -55,3 +55,4 @@ docs/resultados/capturas-app/
 docs/resultados/zap/*.png
 docs/resultados/sonarqube/*.png
 docs/resultados/fiabilidad/*.png
+.scannerwork/
