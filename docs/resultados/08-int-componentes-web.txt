@@ -1,0 +1,94 @@
+
+
+====================================================================================================
+
+  (Run Starting)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Cypress:        16.2.0                                                                         │
+  │ Browser:        Electron 146 (headless) (deprecated)                                           │
+  │ Node Version:   v24.22.1 (C:\Program Files\nodejs\node.exe)                                    │
+  │ Specs:          1 found (modulos-presentacion.cy.jsx)                                          │
+  │ Searched:       M:\Documentos\prog\Pro Web\BRASAS\apps\web\src\integracion\**                  │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+Warning: The Electron browser is deprecated as a test browser and will be removed in a future version of Cypress.
+
+Switch to Chrome or another installed browser to avoid a breaking change when you upgrade.
+
+Read more about supported browsers: https://on.cypress.io/launching-browsers
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  modulos-presentacion.cy.jsx                                                     (1 of 1)
+
+
+  P2 · Pedidos (OrdersPage + useOrdersStore + ordersService)
+    √ P2-01 · Como JEFE consulta /pedidos/todos y pinta la tarjeta del pedido (631ms)
+    √ P2-02 · Crear pedido envía POST /pedidos con los ítems y agrega la tarjeta (599ms)
+    √ P2-03 · Completar con pago en efectivo envía PUT /pedidos/:id/estado con el pago normalizado (385ms)
+
+  P3 · Inventario (InventoryPage + useInventoryStore + inventoryService)
+    √ P3-01 · Lista los insumos y marca en Crítico el que está bajo el mínimo (137ms)
+    √ P3-02 · Agregar insumo envía POST /inventario/insumos y la tarjeta aparece (500ms)
+
+  P4 · Menú y costeo (MenuPage + useMenuStore + menuService)
+    √ P4-01 · Lista los productos con precio, costo y margen para el JEFE (164ms)
+    √ P4-02 · Crear producto pide los insumos, envía POST /productos con la receta y agrega la fila (1020ms)
+
+  P5 · Dashboard (DashboardPage + useDashboardStore + dashboardService)
+    √ P5-01 · Carga el período Diario y muestra Ingresos y Costos del resumen (175ms)
+    √ P5-02 · Cambiar a Semanal vuelve a consultar con periodo=semanal (229ms)
+    1) P5-03 · Las secciones de productos e historial terminan de cargar y muestran los datos
+
+  P6 · Historial (HistoryPage + useHistoryStore + historyService)
+    √ P6-01 · Consulta /historial (página 1, límite 20) y pinta la tabla del JEFE (95ms)
+    √ P6-02 · Elegir la acción CREAR vuelve a consultar con el filtro de acción (651ms)
+
+
+  11 passing (11s)
+  1 failing
+
+  1) P5 · Dashboard (DashboardPage + useDashboardStore + dashboardService)
+       P5-03 · Las secciones de productos e historial terminan de cargar y muestran los datos:
+     AssertionError: Timed out retrying after 6000ms: Expected to find content: 'Productos más rentables' but never did.
+      at Context.<anonymous> (modulos-presentacion.cy.jsx:149:62)
+
+
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        12                                                                               │
+  │ Passing:      11                                                                               │
+  │ Failing:      1                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  1                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     11 seconds                                                                       │
+  │ Spec Ran:     modulos-presentacion.cy.jsx                                                      │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\modulos-presentac     (1280x720)
+     ion.cy.jsx\P5 · Dashboard (DashboardPage + useDashboardStore + dashboardService)               
+      -- P5-03 · Las secciones de productos e historial terminan de cargar y muestran               
+      los datos (failed).png                                                                        
+
+
+====================================================================================================
+
+  (Run Finished)
+
+
+       Spec                                              Tests  Passing  Failing  Pending  Skipped  
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ ✖  modulos-presentacion.cy.jsx              00:11       12       11        1        -        - │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+    ✖  1 of 1 failed (100%)                     00:11       12       11        1        -        -  
+

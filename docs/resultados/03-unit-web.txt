@@ -1,0 +1,586 @@
+
+
+====================================================================================================
+
+  (Run Starting)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Cypress:        16.2.0                                                                         │
+  │ Browser:        Electron 146 (headless) (deprecated)                                           │
+  │ Node Version:   v24.22.1 (C:\Program Files\nodejs\node.exe)                                    │
+  │ Specs:          10 found (integracion/modulos-presentacion.cy.jsx, features/history/stores/use │
+  │                 HistoryStore.cy.js, features/history/components/HistoryFilters.cy.jsx, feature │
+  │                 s/dashboard/components/PeriodFilter.cy.jsx, features/dashboard/services/dashbo │
+  │                 ardService.cy.js, featu...)                                                    │
+  │ Searched:       src/**/*.cy.{js,jsx}                                                           │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+Warning: The Electron browser is deprecated as a test browser and will be removed in a future version of Cypress.
+
+Switch to Chrome or another installed browser to avoid a breaking change when you upgrade.
+
+Read more about supported browsers: https://on.cypress.io/launching-browsers
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  integracion/modulos-presentacion.cy.jsx                                        (1 of 10)
+
+
+  P2 · Pedidos (OrdersPage + useOrdersStore + ordersService)
+    √ P2-01 · Como JEFE consulta /pedidos/todos y pinta la tarjeta del pedido (649ms)
+    √ P2-02 · Crear pedido envía POST /pedidos con los ítems y agrega la tarjeta (666ms)
+    √ P2-03 · Completar con pago en efectivo envía PUT /pedidos/:id/estado con el pago normalizado (391ms)
+
+  P3 · Inventario (InventoryPage + useInventoryStore + inventoryService)
+    √ P3-01 · Lista los insumos y marca en Crítico el que está bajo el mínimo (150ms)
+    √ P3-02 · Agregar insumo envía POST /inventario/insumos y la tarjeta aparece (486ms)
+
+  P4 · Menú y costeo (MenuPage + useMenuStore + menuService)
+    √ P4-01 · Lista los productos con precio, costo y margen para el JEFE (162ms)
+    √ P4-02 · Crear producto pide los insumos, envía POST /productos con la receta y agrega la fila (1007ms)
+
+  P5 · Dashboard (DashboardPage + useDashboardStore + dashboardService)
+    √ P5-01 · Carga el período Diario y muestra Ingresos y Costos del resumen (187ms)
+    √ P5-02 · Cambiar a Semanal vuelve a consultar con periodo=semanal (239ms)
+    1) P5-03 · Las secciones de productos e historial terminan de cargar y muestran los datos
+
+  P6 · Historial (HistoryPage + useHistoryStore + historyService)
+    √ P6-01 · Consulta /historial (página 1, límite 20) y pinta la tabla del JEFE (108ms)
+    √ P6-02 · Elegir la acción CREAR vuelve a consultar con el filtro de acción (654ms)
+
+
+  11 passing (12s)
+  1 failing
+
+  1) P5 · Dashboard (DashboardPage + useDashboardStore + dashboardService)
+       P5-03 · Las secciones de productos e historial terminan de cargar y muestran los datos:
+     AssertionError: Timed out retrying after 6000ms: Expected to find content: 'Productos más rentables' but never did.
+      at Context.<anonymous> (modulos-presentacion.cy.jsx:149:62)
+
+
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        12                                                                               │
+  │ Passing:      11                                                                               │
+  │ Failing:      1                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  1                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     11 seconds                                                                       │
+  │ Spec Ran:     integracion/modulos-presentacion.cy.jsx                                          │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\integracion\modul     (1280x720)
+     os-presentacion.cy.jsx\P5 · Dashboard (DashboardPage + useDashboardStore + dashb               
+     oardService) -- P5-03 · Las secciones de productos e historial terminan de carga               
+     r y muestran los datos (failed).png                                                            
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  features/history/stores/useHistoryStore.cy.js                                  (2 of 10)
+
+
+  Módulo 5 · Historial de auditoría – Consulta y filtros (useHistoryStore)
+    √ CP-01 · Respuesta con datos → items, total y fin de carga (127ms)
+    √ CP-02 · Respuesta vacía ({}) → items [] y total 0 (58ms)
+    √ CP-03 · Respuesta con data pero sin total → total 0 (35ms)
+    √ CP-04 · Error con mensaje del servidor lo expone en 'error' (36ms)
+    √ CP-05 · Error sin mensaje usa el texto por defecto (31ms)
+    √ CP-06 · Valor límite del debounce: a los 399 ms no consulta, a los 400 ms sí (página 1) (58ms)
+    √ CP-07 · Varios cambios seguidos generan UNA sola petición con los filtros acumulados (69ms)
+    √ CP-08 · Los filtros vacíos no se envían al backend (45ms)
+
+
+  8 passing (3s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        8                                                                                │
+  │ Passing:      8                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  8                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     3 seconds                                                                        │
+  │ Spec Ran:     features/history/stores/useHistoryStore.cy.js                                    │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\history\     (1280x720)
+     stores\useHistoryStore.cy.js\CP-01.png                                                         
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\history\     (1280x720)
+     stores\useHistoryStore.cy.js\CP-02.png                                                         
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\history\     (1280x720)
+     stores\useHistoryStore.cy.js\CP-03.png                                                         
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\history\     (1280x720)
+     stores\useHistoryStore.cy.js\CP-04.png                                                         
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\history\     (1280x720)
+     stores\useHistoryStore.cy.js\CP-05.png                                                         
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\history\     (1280x720)
+     stores\useHistoryStore.cy.js\CP-06.png                                                         
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\history\     (1280x720)
+     stores\useHistoryStore.cy.js\CP-07.png                                                         
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\history\     (1280x720)
+     stores\useHistoryStore.cy.js\CP-08.png                                                         
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  features/history/components/HistoryFilters.cy.jsx                              (3 of 10)
+
+
+  Módulo 5 · Historial de auditoría – Filtros por rol (HistoryFilters)
+    √ CP-09 · ADMIN sin lista de usuarios ve el campo 'ID de usuario' (249ms)
+    √ CP-10 · ADMIN con usuarios ve el selector 'Todos los usuarios' (58ms)
+    √ CP-11 · JEFE: sin filtro de usuario y solo 5 entidades de negocio (67ms)
+    √ CP-12 · EMPLEADO: sin selector de entidad; acción y 2 fechas (53ms)
+    √ CP-13 · Cambiar la acción notifica { accion: 'COMPLETAR' } (225ms)
+
+
+  5 passing (2s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        5                                                                                │
+  │ Passing:      5                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  5                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     2 seconds                                                                        │
+  │ Spec Ran:     features/history/components/HistoryFilters.cy.jsx                                │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\history\     (1280x720)
+     components\HistoryFilters.cy.jsx\CP-09.png                                                     
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\history\     (1280x720)
+     components\HistoryFilters.cy.jsx\CP-10.png                                                     
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\history\     (1280x720)
+     components\HistoryFilters.cy.jsx\CP-11.png                                                     
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\history\     (1280x720)
+     components\HistoryFilters.cy.jsx\CP-12.png                                                     
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\history\     (1280x720)
+     components\HistoryFilters.cy.jsx\CP-13.png                                                     
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  features/dashboard/components/PeriodFilter.cy.jsx                              (4 of 10)
+
+
+  Módulo 4 · Dashboard financiero – Selector de período (PeriodFilter)
+    √ CP-07 · Marca el período activo y notifica el cambio (360ms)
+
+
+  1 passing (665ms)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        1                                                                                │
+  │ Passing:      1                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  1                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     0 seconds                                                                        │
+  │ Spec Ran:     features/dashboard/components/PeriodFilter.cy.jsx                                │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\dashboar     (1280x720)
+     d\components\PeriodFilter.cy.jsx\CP-07.png                                                     
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  features/dashboard/services/dashboardService.cy.js                             (5 of 10)
+
+
+  Módulo 4 · Dashboard financiero – Resumen por período (fetchFinancialSummary)
+    √ CP-01 · 'mes' consulta periodo=mensual y mapea la respuesta (105ms)
+    √ CP-02 · periodo 'dia' se traduce a 'diario' (67ms)
+    √ CP-02 · periodo 'semana' se traduce a 'semanal' (30ms)
+    √ CP-02 · periodo 'anio' se traduce a 'mensual' (38ms)
+    √ CP-02 · periodo '' se traduce a 'mensual' (48ms)
+    √ CP-03 · Sin periodo_anterior la variación es null (27ms)
+    √ CP-04 · Si /reportes/resumen falla, calcula ingresos solo con pedidos completados (79ms)
+    √ CP-05 · Valores límite de fecha_inicio en el respaldo (1 de noviembre de 2026) (204ms)
+    √ CP-06 · Si ambas peticiones fallan devuelve todo en cero (44ms)
+
+
+  9 passing (3s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        9                                                                                │
+  │ Passing:      9                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  6                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     3 seconds                                                                        │
+  │ Spec Ran:     features/dashboard/services/dashboardService.cy.js                               │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\dashboar     (1280x720)
+     d\services\dashboardService.cy.js\CP-01.png                                                    
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\dashboar     (1280x720)
+     d\services\dashboardService.cy.js\CP-02.png                                                    
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\dashboar     (1280x720)
+     d\services\dashboardService.cy.js\CP-03.png                                                    
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\dashboar     (1280x720)
+     d\services\dashboardService.cy.js\CP-04.png                                                    
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\dashboar     (1280x720)
+     d\services\dashboardService.cy.js\CP-05.png                                                    
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\dashboar     (1280x720)
+     d\services\dashboardService.cy.js\CP-06.png                                                    
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  features/inventory/components/InventoryModal.cy.jsx                            (6 of 10)
+
+
+  Módulo 2 · Inventario – Nuevo / editar insumo (InventoryModal)
+    √ CP-01 · Nombre vacío (solo espacios) muestra 'El nombre es requerido' (388ms)
+    √ CP-02 · Insumo válido de tipo carne en kg se crea con valores numéricos (1179ms)
+    √ CP-03 · Campos numéricos vacíos se envían como 0 (287ms)
+    √ CP-04 · Stock negativo es inválido y bloquea el envío (validación HTML5) (439ms)
+    √ CP-05 · Valores límite del paso 0,01: 0,01 válido y 0,001 inválido (439ms)
+    √ CP-06 · Costo unitario con decimales (1500,5) queda inválido (step = 1) (259ms)
+    √ CP-07 · Edición: limpia ceros ('2.0000' → 2) y llama a onEdit con el id (155ms)
+    √ CP-08 · Error del servidor se muestra y el modal no se cierra (2902ms)
+    √ CP-09 · Edición que falla sin mensaje del servidor usa 'Error al editar el insumo' (2921ms)
+
+
+  9 passing (12s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        9                                                                                │
+  │ Passing:      9                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  9                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     11 seconds                                                                       │
+  │ Spec Ran:     features/inventory/components/InventoryModal.cy.jsx                              │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\inventor     (1280x720)
+     y\components\InventoryModal.cy.jsx\CP-01.png                                                   
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\inventor     (1280x720)
+     y\components\InventoryModal.cy.jsx\CP-02.png                                                   
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\inventor     (1280x720)
+     y\components\InventoryModal.cy.jsx\CP-03.png                                                   
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\inventor     (1280x720)
+     y\components\InventoryModal.cy.jsx\CP-04.png                                                   
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\inventor     (1280x720)
+     y\components\InventoryModal.cy.jsx\CP-05.png                                                   
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\inventor     (1280x720)
+     y\components\InventoryModal.cy.jsx\CP-06.png                                                   
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\inventor     (1280x720)
+     y\components\InventoryModal.cy.jsx\CP-07.png                                                   
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\inventor     (1280x720)
+     y\components\InventoryModal.cy.jsx\CP-08.png                                                   
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\inventor     (1280x720)
+     y\components\InventoryModal.cy.jsx\CP-09.png                                                   
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  features/inventory/utils/inventoryUtils.cy.js                                  (7 of 10)
+
+
+  Módulo 2 · Inventario – Semáforo de stock (inventoryUtils)
+    √ CP-10 · Valores límite con stock mínimo 4 (51ms)
+    √ CP-11 · Acepta los NUMERIC que devuelve PostgreSQL como texto (16ms)
+    √ CP-12 · Porcentaje de la barra nunca supera 100 % ni es negativo (15ms)
+
+
+  3 passing (847ms)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        3                                                                                │
+  │ Passing:      3                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  3                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     0 seconds                                                                        │
+  │ Spec Ran:     features/inventory/utils/inventoryUtils.cy.js                                    │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\inventor     (1280x720)
+     y\utils\inventoryUtils.cy.js\CP-10.png                                                         
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\inventor     (1280x720)
+     y\utils\inventoryUtils.cy.js\CP-11.png                                                         
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\inventor     (1280x720)
+     y\utils\inventoryUtils.cy.js\CP-12.png                                                         
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  features/menu/components/MenuFormModal.cy.jsx                                  (8 of 10)
+
+
+  Módulo 3 · Menú y costeo – Nuevo / editar producto (MenuFormModal)
+    √ CP-01 · Sin insumos muestra el error y no envía (654ms)
+    √ CP-02 · Producto válido (0,4 kg de carne, categoría Carnes) se envía normalizado (1150ms)
+    1) CP-03 · Nombre vacío NO debe enviarse (RNF-08)
+    2) CP-04 · Precio de venta vacío NO debe enviarse (RNF-08)
+    √ CP-05 · Valores límite de cantidad en 'unidad': 0 y 1,5 inválidos; 1 y 2 válidos (950ms)
+    √ CP-06 · Edición: muestra margen positivo en verde (45.000 − 15.000) (53ms)
+    √ CP-07 · Edición: costo > precio muestra margen negativo en rojo (RF-10) (160ms)
+    3) CP-08 · Valor límite RF-10: costo = precio debe mostrarse como alerta (rojo)
+    √ CP-09 · Producto sin categoría se envía con categoria_id = null y costo 0 (722ms)
+
+
+  6 passing (20s)
+  3 failing
+
+  1) Módulo 3 · Menú y costeo – Nuevo / editar producto (MenuFormModal)
+       CP-03 · Nombre vacío NO debe enviarse (RNF-08):
+     AssertionError: Timed out retrying after 4000ms: expected onSubmit to not have been called at least once
+      at Context.<anonymous> (MenuFormModal.cy.jsx:56:24)
+
+  2) Módulo 3 · Menú y costeo – Nuevo / editar producto (MenuFormModal)
+       CP-04 · Precio de venta vacío NO debe enviarse (RNF-08):
+     AssertionError: Timed out retrying after 4000ms: expected onSubmit to not have been called at least once
+      at Context.<anonymous> (MenuFormModal.cy.jsx:64:24)
+
+  3) Módulo 3 · Menú y costeo – Nuevo / editar producto (MenuFormModal)
+       CP-08 · Valor límite RF-10: costo = precio debe mostrarse como alerta (rojo):
+     AssertionError: Timed out retrying after 4000ms: expected '<div.px-3.py-2.rounded-xl.border.text-xs.font-number.bg-emerald-500/8.border-emerald-500/20.text-emerald-400>' to have class 'text-red-400'
+      at Context.<anonymous> (MenuFormModal.cy.jsx:93:27)
+
+
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        9                                                                                │
+  │ Passing:      6                                                                                │
+  │ Failing:      3                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  12                                                                               │
+  │ Video:        false                                                                            │
+  │ Duration:     20 seconds                                                                       │
+  │ Spec Ran:     features/menu/components/MenuFormModal.cy.jsx                                    │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\menu\com     (1280x720)
+     ponents\MenuFormModal.cy.jsx\CP-01.png                                                         
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\menu\com     (1280x720)
+     ponents\MenuFormModal.cy.jsx\CP-02.png                                                         
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\menu\com     (1280x720)
+     ponents\MenuFormModal.cy.jsx\Módulo 3 · Menú y costeo – Nuevo  editar producto (               
+     MenuFormModal) -- CP-03 · Nombre vacío NO debe enviarse (RNF-08) (failed).png                  
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\menu\com     (1280x720)
+     ponents\MenuFormModal.cy.jsx\CP-03.png                                                         
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\menu\com     (1280x720)
+     ponents\MenuFormModal.cy.jsx\Módulo 3 · Menú y costeo – Nuevo  editar producto (               
+     MenuFormModal) -- CP-04 · Precio de venta vacío NO debe enviarse (RNF-08) (faile               
+     d).png                                                                                         
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\menu\com     (1280x720)
+     ponents\MenuFormModal.cy.jsx\CP-04.png                                                         
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\menu\com     (1280x720)
+     ponents\MenuFormModal.cy.jsx\CP-05.png                                                         
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\menu\com     (1280x720)
+     ponents\MenuFormModal.cy.jsx\CP-06.png                                                         
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\menu\com     (1280x720)
+     ponents\MenuFormModal.cy.jsx\CP-07.png                                                         
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\menu\com     (1280x720)
+     ponents\MenuFormModal.cy.jsx\Módulo 3 · Menú y costeo – Nuevo  editar producto (               
+     MenuFormModal) -- CP-08 · Valor límite RF-10 costo = precio debe mostrarse como                
+     alerta (rojo) (failed).png                                                                     
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\menu\com     (1280x720)
+     ponents\MenuFormModal.cy.jsx\CP-08.png                                                         
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\menu\com     (1280x720)
+     ponents\MenuFormModal.cy.jsx\CP-09.png                                                         
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  features/orders/components/OrderCreateModal.cy.jsx                             (9 of 10)
+
+
+  Módulo 1 · Gestión de pedidos – Nuevo pedido (OrderCreateModal)
+    √ CP-08 · Sin plato seleccionado no permite crear el pedido (181ms)
+    √ CP-09 · Valor límite: la cantidad nunca baja de 1 (185ms)
+    √ CP-10 · Calcula el total (2 × $45.000) y envía los ítems (465ms)
+    √ CP-11 · Un plato ya elegido no se ofrece en otra línea (435ms)
+
+
+  4 passing (3s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        4                                                                                │
+  │ Passing:      4                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  4                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     2 seconds                                                                        │
+  │ Spec Ran:     features/orders/components/OrderCreateModal.cy.jsx                               │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\orders\c     (1280x720)
+     omponents\OrderCreateModal.cy.jsx\CP-08.png                                                    
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\orders\c     (1280x720)
+     omponents\OrderCreateModal.cy.jsx\CP-09.png                                                    
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\orders\c     (1280x720)
+     omponents\OrderCreateModal.cy.jsx\CP-10.png                                                    
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\orders\c     (1280x720)
+     omponents\OrderCreateModal.cy.jsx\CP-11.png                                                    
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  features/orders/components/PaymentModal.cy.jsx                                (10 of 10)
+
+
+  Módulo 1 · Gestión de pedidos – Método de pago (PaymentModal)
+    √ CP-01 · Sin método seleccionado el botón Confirmar está deshabilitado (179ms)
+    √ CP-02 · Efectivo confirma con { metodo: 'efectivo' } (325ms)
+    √ CP-03 · Ambos con suma exacta (50.000 + 40.000) envía el pago dividido (647ms)
+    √ CP-04 · Ambos con faltante muestra 'Faltan $10.000' y bloquea (2834ms)
+    √ CP-05 · Ambos con excedente muestra 'Excede $10.000' y bloquea (3879ms)
+    √ CP-06 · Valor límite: diferencia de $1 bloquea y diferencia de $0,5 permite (709ms)
+    √ CP-07 · Valor límite: Ambos con montos en cero no permite confirmar (468ms)
+    √ CP-12 · Transferencia confirma con { metodo: 'transferencia' } (233ms)
+
+
+  8 passing (12s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        8                                                                                │
+  │ Passing:      8                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  8                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     11 seconds                                                                       │
+  │ Spec Ran:     features/orders/components/PaymentModal.cy.jsx                                   │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\orders\c     (1280x720)
+     omponents\PaymentModal.cy.jsx\CP-01.png                                                        
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\orders\c     (1280x720)
+     omponents\PaymentModal.cy.jsx\CP-02.png                                                        
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\orders\c     (1280x720)
+     omponents\PaymentModal.cy.jsx\CP-03.png                                                        
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\orders\c     (1280x720)
+     omponents\PaymentModal.cy.jsx\CP-04.png                                                        
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\orders\c     (1280x720)
+     omponents\PaymentModal.cy.jsx\CP-05.png                                                        
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\orders\c     (1280x720)
+     omponents\PaymentModal.cy.jsx\CP-06.png                                                        
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\orders\c     (1280x720)
+     omponents\PaymentModal.cy.jsx\CP-07.png                                                        
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\features\orders\c     (1280x720)
+     omponents\PaymentModal.cy.jsx\CP-12.png                                                        
+
+
+====================================================================================================
+
+  (Run Finished)
+
+
+       Spec                                              Tests  Passing  Failing  Pending  Skipped  
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ ✖  integracion/modulos-presentacion.cy      00:11       12       11        1        -        - │
+  │    .jsx                                                                                        │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  features/history/stores/useHistoryS      00:03        8        8        -        -        - │
+  │    tore.cy.js                                                                                  │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  features/history/components/History      00:02        5        5        -        -        - │
+  │    Filters.cy.jsx                                                                              │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  features/dashboard/components/Perio      668ms        1        1        -        -        - │
+  │    dFilter.cy.jsx                                                                              │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  features/dashboard/services/dashboa      00:03        9        9        -        -        - │
+  │    rdService.cy.js                                                                             │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  features/inventory/components/Inven      00:11        9        9        -        -        - │
+  │    toryModal.cy.jsx                                                                            │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  features/inventory/utils/inventoryU      853ms        3        3        -        -        - │
+  │    tils.cy.js                                                                                  │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✖  features/menu/components/MenuFormMo      00:20        9        6        3        -        - │
+  │    dal.cy.jsx                                                                                  │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  features/orders/components/OrderCre      00:02        4        4        -        -        - │
+  │    ateModal.cy.jsx                                                                             │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  features/orders/components/PaymentM      00:11        8        8        -        -        - │
+  │    odal.cy.jsx                                                                                 │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+    ✖  2 of 10 failed (20%)                     01:08       68       64        4        -        -  
+

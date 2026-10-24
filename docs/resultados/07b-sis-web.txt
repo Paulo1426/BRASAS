@@ -1,0 +1,65 @@
+
+> brasas@0.0.0 test:sis:web
+> cypress run --e2e --spec cypress/e2e/sistema.cy.js
+
+
+
+====================================================================================================
+
+  (Run Starting)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Cypress:        16.2.0                                                                         │
+  │ Browser:        Electron 146 (headless) (deprecated)                                           │
+  │ Node Version:   v24.15.0 (C:\Program Files\nodejs\node.exe)                                    │
+  │ Specs:          1 found (sistema.cy.js)                                                        │
+  │ Searched:       M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\e2e\sistema.cy.js           │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+Warning: The Electron browser is deprecated as a test browser and will be removed in a future version of Cypress.
+
+Switch to Chrome or another installed browser to avoid a breaking change when you upgrade.
+
+Read more about supported browsers: https://on.cypress.io/launching-browsers
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  sistema.cy.js                                                                   (1 of 1)
+
+
+  SIS · Interfaz integrada con la API y la base de datos reales
+    √ SIS-UI-01 · El JEFE inicia sesión con la API real y recibe un JWT (2855ms)
+    √ SIS-UI-02 · Los 5 módulos responden 200 desde PostgreSQL al navegar por el menú (3431ms)
+    √ SIS-UI-03 · El producto sembrado (seed) llega de la BD a la tabla del Menú (1644ms)
+
+
+  3 passing (8s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        3                                                                                │
+  │ Passing:      3                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     8 seconds                                                                        │
+  │ Spec Ran:     sistema.cy.js                                                                    │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+====================================================================================================
+
+  (Run Finished)
+
+
+       Spec                                              Tests  Passing  Failing  Pending  Skipped  
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ ✔  sistema.cy.js                            00:08        3        3        -        -        - │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+    ✔  All specs passed!                        00:08        3        3        -        -        -  
+

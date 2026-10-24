@@ -1,0 +1,192 @@
+
+> api@1.0.0 test:cov
+> jest tests/integracion/componentes --coverage
+
+FAIL tests/integracion/componentes/n5-historial.test.js (14.259 s)
+  ● N5 · integrado (HTTP → controller → servicio → repositorio) › N5-07 · Filtro tipo_accion=CREAR se aplica en la consulta (h.accion = CREAR) (RF-23)
+
+    expect(received).toMatch(expected)
+
+    Expected pattern: /h\.accion = \$/
+    Received string:  "SELECT COUNT(*) AS total FROM historial h LEFT JOIN usuarios u ON h.usuario_id = u.id WHERE h.local_id = $1 AND h.entidad IN ($2, $3, $4, $5, $6)"
+
+    [0m [90m 71 |[39m     [36mawait[39m request(app)[33m.[39m[36mget[39m([32m'/api/v1/historial?tipo_accion=CREAR'[39m)[33m.[39m[36mset[39m([32m'Authorization'[39m[33m,[39m tokenPara([32m'JEFE'[39m))[33m;[39m
+     [90m 72 |[39m     [36mconst[39m { sql[33m,[39m params } [33m=[39m consultaConteo()[33m;[39m
+    [31m[1m>[22m[39m[90m 73 |[39m     expect(sql)[33m.[39mtoMatch([35m/h\.accion = \$/[39m)[33m;[39m
+     [90m    |[39m                 [31m[1m^[22m[39m
+     [90m 74 |[39m     expect(params)[33m.[39mtoContain([32m'CREAR'[39m)[33m;[39m
+     [90m 75 |[39m   })[33m;[39m
+     [90m 76 |[39m[0m
+
+      at Object.toMatch (tests/integracion/componentes/n5-historial.test.js:73:17)
+
+  ● N5 · integrado (HTTP → controller → servicio → repositorio) › N5-08 · El parámetro que envía el frontend (accion=COMPLETAR) también filtra
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected value: "COMPLETAR"
+    Received array: ["11111111-1111-4111-8111-111111111111", "pedidos", "inventario", "carnes", "insumos", "productos", 20, 0]
+
+    [0m [90m 78 |[39m     prepararHistorial()[33m;[39m
+     [90m 79 |[39m     [36mawait[39m request(app)[33m.[39m[36mget[39m([32m'/api/v1/historial?accion=COMPLETAR'[39m)[33m.[39m[36mset[39m([32m'Authorization'[39m[33m,[39m tokenPara([32m'JEFE'[39m))[33m;[39m
+    [31m[1m>[22m[39m[90m 80 |[39m     expect(consultaConteo()[33m.[39mparams)[33m.[39mtoContain([32m'COMPLETAR'[39m)[33m;[39m
+     [90m    |[39m                                     [31m[1m^[22m[39m
+     [90m 81 |[39m   })[33m;[39m
+     [90m 82 |[39m
+     [90m 83 |[39m   test([32m'N5-09 · Respuesta paginada { data, total, page, limit } con total numérico'[39m[33m,[39m [36masync[39m () [33m=>[39m {[0m
+
+      at Object.toContain (tests/integracion/componentes/n5-historial.test.js:80:37)
+
+FAIL tests/integracion/componentes/n1-pedidos.test.js (14.348 s)
+  ● N1 · hoja con driver (servicio + stub de BD) › N1-13 · updatePedido (edición ADMIN) envía a la BD tantos parámetros como marcadores
+
+    expect(received).resolves.toBeTruthy()
+
+    Received promise rejected instead of resolved
+    Rejected to value: [Error: bind message supplies 5 parameters, but prepared statement "" requires 4]
+
+    [0m [90m 67 |[39m   test([32m'N1-13 · updatePedido (edición ADMIN) envía a la BD tantos parámetros como marcadores'[39m[33m,[39m [36masync[39m () [33m=>[39m {
+     [90m 68 |[39m     prepararBd()[33m;[39m
+    [31m[1m>[22m[39m[90m 69 |[39m     [36mawait[39m expect(pedidosService[33m.[39mupdatePedido([33mPEDIDO_ID[39m[33m,[39m [33mIDS[39m[33m.[39m[33mLOCAL[39m[33m,[39m [{ producto_id[33m:[39m [33mCHURRASCO[39m[33m,[39m cantidad[33m:[39m [35m3[39m }]))
+     [90m    |[39m           [31m[1m^[22m[39m
+     [90m 70 |[39m       [33m.[39mresolves[33m.[39mtoBeTruthy()[33m;[39m
+     [90m 71 |[39m   })[33m;[39m
+     [90m 72 |[39m })[33m;[39m[0m
+
+      at expect (node_modules/expect/build/index.js:2116:15)
+      at Object.expect (tests/integracion/componentes/n1-pedidos.test.js:69:11)
+
+  ● N1 · integrado (HTTP → controller → servicio real) › N1-17 · PUT /pedidos/:id (ADMIN edita ítems) → 200 con el pedido actualizado (RF-19)
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 200
+    Received: 500
+
+    [0m [90m 102 |[39m       [33m.[39msend({ items[33m:[39m [{ producto_id[33m:[39m [33mCHURRASCO[39m[33m,[39m cantidad[33m:[39m [35m3[39m }] })[33m;[39m
+     [90m 103 |[39m     errorLog[33m.[39mmockRestore()[33m;[39m
+    [31m[1m>[22m[39m[90m 104 |[39m     expect(res[33m.[39mstatus)[33m.[39mtoBe([35m200[39m)[33m;[39m
+     [90m     |[39m                        [31m[1m^[22m[39m
+     [90m 105 |[39m   })[33m;[39m
+     [90m 106 |[39m })[33m;[39m
+     [90m 107 |[39m[0m
+
+      at Object.toBe (tests/integracion/componentes/n1-pedidos.test.js:104:24)
+
+FAIL tests/integracion/componentes/n2-inventario.test.js (14.361 s)
+  ● N2 · integrado (HTTP → controller → servicio real) › N2-09 · POST /inventario/entrada con cantidad negativa → 400 (RNF-10)
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 400
+    Received: 201
+
+    [0m [90m 91 |[39m     [36mconst[39m res [33m=[39m [36mawait[39m request(app)[33m.[39mpost([32m'/api/v1/inventario/entrada'[39m)[33m.[39m[36mset[39m([32m'Authorization'[39m[33m,[39m tokenPara([32m'JEFE'[39m))
+     [90m 92 |[39m       [33m.[39msend({ insumo_id[33m:[39m [33mINSUMO_ID[39m[33m,[39m cantidad[33m:[39m [33m-[39m[35m5[39m[33m,[39m costo_unitario[33m:[39m [35m30000[39m })[33m;[39m
+    [31m[1m>[22m[39m[90m 93 |[39m     expect(res[33m.[39mstatus)[33m.[39mtoBe([35m400[39m)[33m;[39m
+     [90m    |[39m                        [31m[1m^[22m[39m
+     [90m 94 |[39m   })[33m;[39m
+     [90m 95 |[39m
+     [90m 96 |[39m   test([32m'N2-10 · PATCH /insumos/:id/stock-minimo con JEFE → 403 (solo ADMIN)'[39m[33m,[39m [36masync[39m () [33m=>[39m {[0m
+
+      at Object.toBe (tests/integracion/componentes/n2-inventario.test.js:93:24)
+
+FAIL tests/integracion/componentes/n4-reportes.test.js (14.393 s)
+  ● N4 · hoja con driver (servicio + stub de BD) › N4-06 · Los meses anteriores al primer mes con ventas no se proyectan (ingresos 0)
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+    [0m [90m 73 |[39m     [36mconst[39m r [33m=[39m [36mawait[39m reportesService[33m.[39mgetProyecciones([33mIDS[39m[33m.[39m[33mLOCAL[39m)[33m;[39m
+     [90m 74 |[39m     [36mconst[39m pasados [33m=[39m r[33m.[39mmeses[33m.[39mfilter((m) [33m=>[39m m[33m.[39mmes [33m<[39m [35m9[39m)[33m;[39m
+    [31m[1m>[22m[39m[90m 75 |[39m     expect(pasados[33m.[39mevery((m) [33m=>[39m m[33m.[39mingresos [33m===[39m [35m0[39m))[33m.[39mtoBe([36mtrue[39m)[33m;[39m
+     [90m    |[39m                                                    [31m[1m^[22m[39m
+     [90m 76 |[39m   })[33m;[39m
+     [90m 77 |[39m })[33m;[39m
+     [90m 78 |[39m[0m
+
+      at Object.toBe (tests/integracion/componentes/n4-reportes.test.js:75:52)
+
+FAIL tests/integracion/componentes/n3-productos.test.js (14.461 s)
+  ● N3 · integrado (HTTP → controller → servicio real) › N3-07 · GET /productos con token de EMPLEADO no expone costo ni margen (RF-09)
+
+    expect(received).not.toHaveProperty(path)
+
+    Expected path: not "costo_produccion"
+
+    Received value: "18000"
+
+    [0m [90m 90 |[39m     [36mconst[39m res [33m=[39m [36mawait[39m request(app)[33m.[39m[36mget[39m([32m'/api/v1/productos'[39m)[33m.[39m[36mset[39m([32m'Authorization'[39m[33m,[39m tokenPara([32m'EMPLEADO'[39m))[33m;[39m
+     [90m 91 |[39m     expect(res[33m.[39mstatus)[33m.[39mtoBe([35m200[39m)[33m;[39m
+    [31m[1m>[22m[39m[90m 92 |[39m     expect(res[33m.[39mbody[[35m0[39m])[33m.[39mnot[33m.[39mtoHaveProperty([32m'costo_produccion'[39m)[33m;[39m
+     [90m    |[39m                             [31m[1m^[22m[39m
+     [90m 93 |[39m     expect(res[33m.[39mbody[[35m0[39m])[33m.[39mnot[33m.[39mtoHaveProperty([32m'margen'[39m)[33m;[39m
+     [90m 94 |[39m   })[33m;[39m
+     [90m 95 |[39m[0m
+
+      at Object.toHaveProperty (tests/integracion/componentes/n3-productos.test.js:92:29)
+
+FAIL tests/integracion/componentes/t2-auditoria.test.js (14.47 s)
+  ● T2 · integrado (middleware + servicio + repositorio reales) › T2-06 · Crear un insumo inserta en historial (CREAR · inventario · usuario JEFE)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+      Array [
+        "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb",
+        "11111111-1111-4111-8111-111111111111",
+    -   "inventario",
+    +   "insumos",
+        null,
+        "CREAR",
+        Any<String>,
+      ]
+
+    [0m [90m 83 |[39m     expect(res[33m.[39mstatus)[33m.[39mtoBe([35m201[39m)[33m;[39m
+     [90m 84 |[39m     [36mconst[39m [insert] [33m=[39m insertsHistorial()[33m;[39m
+    [31m[1m>[22m[39m[90m 85 |[39m     expect(insert[33m.[39mparams)[33m.[39mtoEqual([[33mIDS[39m[33m.[39m[33mJEFE[39m[33m,[39m [33mIDS[39m[33m.[39m[33mLOCAL[39m[33m,[39m [32m'inventario'[39m[33m,[39m [36mnull[39m[33m,[39m [32m'CREAR'[39m[33m,[39m expect[33m.[39many([33mString[39m)])[33m;[39m
+     [90m    |[39m                           [31m[1m^[22m[39m
+     [90m 86 |[39m   })[33m;[39m
+     [90m 87 |[39m
+     [90m 88 |[39m   test([32m'T2-07 · Crear un pedido debe dejar UN solo registro CREAR en el historial'[39m[33m,[39m [36masync[39m () [33m=>[39m {[0m
+
+      at Object.toEqual (tests/integracion/componentes/t2-auditoria.test.js:85:27)
+
+  ● T2 · integrado (middleware + servicio + repositorio reales) › T2-07 · Crear un pedido debe dejar UN solo registro CREAR en el historial
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 0
+    + Received  + 1
+
+      Array [
+        "pedidos",
+    +   null,
+      ]
+
+    [0m [90m  95 |[39m     expect(res[33m.[39mstatus)[33m.[39mtoBe([35m201[39m)[33m;[39m
+     [90m  96 |[39m     [36mconst[39m creaciones [33m=[39m insertsHistorial()[33m.[39mfilter(({ params }) [33m=>[39m params[[35m4[39m] [33m===[39m [32m'CREAR'[39m)[33m;[39m
+    [31m[1m>[22m[39m[90m  97 |[39m     expect(creaciones[33m.[39mmap(({ params }) [33m=>[39m params[[35m2[39m]))[33m.[39mtoEqual([[32m'pedidos'[39m])[33m;[39m   [90m// servicio y middleware registran la misma acción[39m
+     [90m     |[39m                                                       [31m[1m^[22m[39m
+     [90m  98 |[39m   })[33m;[39m
+     [90m  99 |[39m
+     [90m 100 |[39m   test([32m'T2-08 · Si falla el INSERT en historial, la operación principal responde igual (201)'[39m[33m,[39m [36masync[39m () [33m=>[39m {[0m
+
+      at Object.toEqual (tests/integracion/componentes/t2-auditoria.test.js:97:55)
+
+
+=============================== Coverage summary ===============================
+Statements   : 51.25% ( 611/1192 )
+Branches     : 43.9% ( 227/517 )
+Functions    : 39.83% ( 49/123 )
+Lines        : 54.58% ( 577/1057 )
+================================================================================
+Test Suites: 6 failed, 4 passed, 10 total
+Tests:       9 failed, 83 passed, 92 total
+Snapshots:   0 total
+Time:        18.221 s
+Ran all test suites matching tests/integracion/componentes.
