@@ -1,0 +1,63 @@
+
+> test:firefox
+> cross-env BROWSER=firefox npm test
+
+
+> test
+> node --test --test-concurrency=1 specs/empleado.test.js specs/jefe.test.js
+
+▶ Aceptación · rol EMPLEADO
+  ✔ CA001 · Crear pedido con total automático (RF-16, RF-17) (3597.9901ms)
+  ✔ CA002 · Completar pedido registrando el pago (RF-13, RF-16) (977.635ms)
+  ✔ CA007 · El empleado no puede abrir el dashboard financiero (RF-03) (2459.9221ms)
+  ✖ CA008 · El menú del empleado no muestra costo ni margen (RF-09) (625.9062ms)
+✖ Aceptación · rol EMPLEADO (71574.513ms)
+▶ Aceptación · rol JEFE
+  ✔ CA003 · Insumo bajo el mínimo aparece en estado Crítico (RF-14, RF-15) (1190.2986ms)
+  ✔ CA004 · Producto con receta calcula su costo (RF-06, RF-07) (1800.4565ms)
+  ✔ CA005 · El dashboard refleja un pedido completado en < 5 s (RF-20, RNF-06) (5919.8165ms)
+  ✖ CA006 · Filtrar el historial por acción muestra solo esa acción (RF-23) (1392.7012ms)
+✖ Aceptación · rol JEFE (18579.6863ms)
+ℹ tests 8
+ℹ suites 2
+ℹ pass 6
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 90598.2502
+
+✖ failing tests:
+
+test at specs\empleado.test.js:50:3
+✖ CA008 · El menú del empleado no muestra costo ni margen (RF-09) (625.9062ms)
+  AssertionError [ERR_ASSERTION]: La columna 'Costo Prod.' es visible para el EMPLEADO
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (file:///M:/Documentos/prog/Pro%20Web/BRASAS/e2e/specs/empleado.test.js:54:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at specs\jefe.test.js:68:3
+✖ CA006 · Filtrar el historial por acción muestra solo esa acción (RF-23) (1392.7012ms)
+  AssertionError [ERR_ASSERTION]: Acciones encontradas: COMPLETAR, CREAR
+      at TestContext.<anonymous> (file:///M:/Documentos/prog/Pro%20Web/BRASAS/e2e/specs/jefe.test.js:75:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

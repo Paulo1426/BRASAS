@@ -7,7 +7,11 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test:unit": "cypress run --component",
+    "test:int:web": "cypress run --e2e --spec cypress/e2e/interfaz-web.cy.js",
+    "test:sis:web": "cypress run --e2e --spec cypress/e2e/sistema.cy.js",
+    "cy:open": "cypress open"
   },
   "dependencies": {
     "@heroui/react": "^3.0.2",
@@ -29,6 +33,7 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",
     "babel-plugin-react-compiler": "^1.0.0",
+    "cypress": "^16.2.0",
     "eslint": "^9.39.4",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.5.2",

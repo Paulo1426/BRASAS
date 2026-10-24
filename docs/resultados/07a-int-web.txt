@@ -1,0 +1,91 @@
+
+> brasas@0.0.0 test:int:web
+> cypress run --e2e --spec cypress/e2e/interfaz-web.cy.js
+
+
+
+====================================================================================================
+
+  (Run Starting)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Cypress:        16.2.0                                                                         │
+  │ Browser:        Electron 146 (headless) (deprecated)                                           │
+  │ Node Version:   v24.15.0 (C:\Program Files\nodejs\node.exe)                                    │
+  │ Specs:          1 found (interfaz-web.cy.js)                                                   │
+  │ Searched:       M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\e2e\interfaz-web.cy.js      │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+Warning: The Electron browser is deprecated as a test browser and will be removed in a future version of Cypress.
+
+Switch to Chrome or another installed browser to avoid a breaking change when you upgrade.
+
+Read more about supported browsers: https://on.cypress.io/launching-browsers
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  interfaz-web.cy.js                                                              (1 of 1)
+
+
+  P1 · Interfaz Web con la API simulada
+    √ P1-01 · Sin sesión, una ruta protegida redirige a /login (1830ms)
+    √ P1-02 · El JEFE ve su menú (sin 'Usuarios') y aterriza en /dashboard (831ms)
+    √ P1-03 · El EMPLEADO que abre /dashboard termina en /empleado/pedidos (RF-03) (706ms)
+    √ P1-04 · El menú lateral integra los 5 módulos: cada uno carga su ruta y consulta su API (1550ms)
+    √ P1-05 · services/api.js agrega Authorization: Bearer <token> a cada petición (680ms)
+    1) P1-06 · Recargar un módulo con sesión válida conserva la ruta (/inventory)
+    √ P1-07 · Una respuesta 401 de la API cierra la sesión y lleva a /login (3367ms)
+    √ P1-08 · Un token vencido en el navegador no abre sesión (684ms)
+
+
+  7 passing (16s)
+  1 failing
+
+  1) P1 · Interfaz Web con la API simulada
+       P1-06 · Recargar un módulo con sesión válida conserva la ruta (/inventory):
+
+      Timed out retrying after 4000ms
+      + expected - actual
+
+      -'/dashboard'
+      +'/inventory'
+      
+      at Context.eval (webpack://brasas/./cypress/e2e/interfaz-web.cy.js:47:28)
+
+
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        8                                                                                │
+  │ Passing:      7                                                                                │
+  │ Failing:      1                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  1                                                                                │
+  │ Video:        false                                                                            │
+  │ Duration:     16 seconds                                                                       │
+  │ Spec Ran:     interfaz-web.cy.js                                                               │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  M:\Documentos\prog\Pro Web\BRASAS\apps\web\cypress\screenshots\interfaz-web.cy.j     (1280x720)
+     s\P1 · Interfaz Web con la API simulada -- P1-06 · Recargar un módulo con sesión               
+      válida conserva la ruta (inventory) (failed).png                                              
+
+
+====================================================================================================
+
+  (Run Finished)
+
+
+       Spec                                              Tests  Passing  Failing  Pending  Skipped  
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ ✖  interfaz-web.cy.js                       00:16        8        7        1        -        - │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+    ✖  1 of 1 failed (100%)                     00:16        8        7        1        -        -  
+

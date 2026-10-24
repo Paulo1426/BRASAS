@@ -1,0 +1,1 @@
+{ "periodo": "diario", "ingresos": 100000, "costo_total": 50000, "utilidad": 50000, "margen": 50, "utilidad_positiva": true, "periodo_anterior": { "variacion_utilidad": 10 } }

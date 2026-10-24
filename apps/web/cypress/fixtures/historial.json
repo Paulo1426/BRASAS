@@ -1,0 +1,1 @@
+{ "data": [{ "id": "h-1", "accion": "CREAR", "entidad": "pedidos", "detalle": { "descripcion": "Pedido creado" }, "created_at": "2026-10-19T15:00:00.000Z" }], "total": 1 }

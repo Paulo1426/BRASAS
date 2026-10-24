@@ -1,0 +1,553 @@
+  console.log
+    ✅ Brasas-OS conectado a Supabase con éxito en el puerto 6543
+
+      at Query.log (src/shared/database/db.js:34:15)
+
+  console.error
+    Error updating estado: error: invalid input value for enum pedido_estado_enum: "preparando"
+        at M:\Documentos\prog\Pro Web\BRASAS\apps\api\node_modules\pg-pool\index.js:45:11
+        at processTicksAndRejections (node:internal/process/task_queues:104:5)
+        at PedidosService.updateEstado (M:\Documentos\prog\Pro Web\BRASAS\apps\api\src\features\pedidos\pedidos.service.js:115:13)
+        at updateEstado (M:\Documentos\prog\Pro Web\BRASAS\apps\api\src\features\pedidos\pedidos.controller.js:109:27) {
+      length: 148,
+      severity: 'ERROR',
+      code: '22P02',
+      detail: undefined,
+      hint: undefined,
+      position: undefined,
+      internalPosition: undefined,
+      internalQuery: undefined,
+      where: "unnamed portal parameter $1 = '...'",
+      schema: undefined,
+      table: undefined,
+      column: undefined,
+      dataType: undefined,
+      constraint: undefined,
+      file: 'enum.c',
+      line: '129',
+      routine: 'enum_in'
+    }
+
+    [0m [90m 143 |[39m       })[33m;[39m
+     [90m 144 |[39m     }
+    [31m[1m>[22m[39m[90m 145 |[39m     console[33m.[39merror([32m'Error updating estado:'[39m[33m,[39m error)[33m;[39m
+     [90m     |[39m             [31m[1m^[22m[39m
+     [90m 146 |[39m     res[33m.[39mstatus([35m500[39m)[33m.[39mjson({ message[33m:[39m [32m'Error interno del servidor'[39m })[33m;[39m
+     [90m 147 |[39m   }
+     [90m 148 |[39m }[33m;[39m[0m
+
+      at error (src/features/pedidos/pedidos.controller.js:145:13)
+
+  console.error
+    Error updating estado: error: invalid input value for enum pedido_estado_enum: "preparando"
+        at M:\Documentos\prog\Pro Web\BRASAS\apps\api\node_modules\pg-pool\index.js:45:11
+        at processTicksAndRejections (node:internal/process/task_queues:104:5)
+        at PedidosService.updateEstado (M:\Documentos\prog\Pro Web\BRASAS\apps\api\src\features\pedidos\pedidos.service.js:115:13)
+        at updateEstado (M:\Documentos\prog\Pro Web\BRASAS\apps\api\src\features\pedidos\pedidos.controller.js:109:27) {
+      length: 148,
+      severity: 'ERROR',
+      code: '22P02',
+      detail: undefined,
+      hint: undefined,
+      position: undefined,
+      internalPosition: undefined,
+      internalQuery: undefined,
+      where: "unnamed portal parameter $1 = '...'",
+      schema: undefined,
+      table: undefined,
+      column: undefined,
+      dataType: undefined,
+      constraint: undefined,
+      file: 'enum.c',
+      line: '129',
+      routine: 'enum_in'
+    }
+
+    [0m [90m 143 |[39m       })[33m;[39m
+     [90m 144 |[39m     }
+    [31m[1m>[22m[39m[90m 145 |[39m     console[33m.[39merror([32m'Error updating estado:'[39m[33m,[39m error)[33m;[39m
+     [90m     |[39m             [31m[1m^[22m[39m
+     [90m 146 |[39m     res[33m.[39mstatus([35m500[39m)[33m.[39mjson({ message[33m:[39m [32m'Error interno del servidor'[39m })[33m;[39m
+     [90m 147 |[39m   }
+     [90m 148 |[39m }[33m;[39m[0m
+
+      at error (src/features/pedidos/pedidos.controller.js:145:13)
+
+FAIL tests/integracion/hilos/h01-completar-pedido.bd.test.js (7.839 s)
+  ● CI-H01-01 · Flujo completo: crear → preparar → completar con pago › Paso 2 · pendiente → preparando → 200
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 200
+    Received: 500
+
+    [0m [90m 36 |[39m   test([32m'Paso 2 · pendiente → preparando → 200'[39m[33m,[39m [36masync[39m () [33m=>[39m {
+     [90m 37 |[39m     [36mconst[39m res [33m=[39m [36mawait[39m cambiarEstado(ctx[33m.[39mempleado[33m.[39mauth[33m,[39m pedidoId[33m,[39m [32m'preparando'[39m)[33m;[39m
+    [31m[1m>[22m[39m[90m 38 |[39m     expect(res[33m.[39mstatus)[33m.[39mtoBe([35m200[39m)[33m;[39m
+     [90m    |[39m                        [31m[1m^[22m[39m
+     [90m 39 |[39m     expect(res[33m.[39mbody[33m.[39mestado)[33m.[39mtoBe([32m'preparando'[39m)[33m;[39m
+     [90m 40 |[39m   })[33m;[39m
+     [90m 41 |[39m[0m
+
+      at Object.toBe (tests/integracion/hilos/h01-completar-pedido.bd.test.js:38:24)
+
+  ● CI-H01-03 · Transiciones no permitidas › Paso 1 · Crear pedido y pasarlo a preparando
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 200
+    Received: 500
+
+    [0m [90m 92 |[39m   test([32m'Paso 1 · Crear pedido y pasarlo a preparando'[39m[33m,[39m [36masync[39m () [33m=>[39m {
+     [90m 93 |[39m     pedidoId [33m=[39m ([36mawait[39m crearPedido(ctx[33m.[39mempleado[33m.[39mauth[33m,[39m [{ producto_id[33m:[39m producto[33m.[39mid[33m,[39m cantidad[33m:[39m [35m1[39m }]))[33m.[39mbody[33m.[39mid[33m;[39m
+    [31m[1m>[22m[39m[90m 94 |[39m     expect(([36mawait[39m cambiarEstado(ctx[33m.[39mempleado[33m.[39mauth[33m,[39m pedidoId[33m,[39m [32m'preparando'[39m))[33m.[39mstatus)[33m.[39mtoBe([35m200[39m)[33m;[39m
+     [90m    |[39m                                                                                     [31m[1m^[22m[39m
+     [90m 95 |[39m   })[33m;[39m
+     [90m 96 |[39m
+     [90m 97 |[39m   test([32m'Paso 2 · Retroceder preparando → pendiente → 400'[39m[33m,[39m [36masync[39m () [33m=>[39m {[0m
+
+      at Object.toBe (tests/integracion/hilos/h01-completar-pedido.bd.test.js:94:85)
+
+  ● CI-H01-03 · Transiciones no permitidas › Paso 2 · Retroceder preparando → pendiente → 400
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 400
+    Received: 200
+
+    [0m [90m  96 |[39m
+     [90m  97 |[39m   test([32m'Paso 2 · Retroceder preparando → pendiente → 400'[39m[33m,[39m [36masync[39m () [33m=>[39m {
+    [31m[1m>[22m[39m[90m  98 |[39m     expect(([36mawait[39m cambiarEstado(ctx[33m.[39mempleado[33m.[39mauth[33m,[39m pedidoId[33m,[39m [32m'pendiente'[39m))[33m.[39mstatus)[33m.[39mtoBe([35m400[39m)[33m;[39m
+     [90m     |[39m                                                                                    [31m[1m^[22m[39m
+     [90m  99 |[39m   })[33m;[39m
+     [90m 100 |[39m
+     [90m 101 |[39m   test([32m'Paso 3 · Cancelar el pedido en preparación → 200'[39m[33m,[39m [36masync[39m () [33m=>[39m {[0m
+
+      at Object.toBe (tests/integracion/hilos/h01-completar-pedido.bd.test.js:98:84)
+
+  console.log
+    ✅ Brasas-OS conectado a Supabase con éxito en el puerto 6543
+
+      at Query.log (src/shared/database/db.js:34:15)
+
+FAIL tests/integracion/bd/sis-sistema.bd.test.js
+  ● SIS · servicios con la BD real (driver Jest) › SIS-01 · createMovimiento(salida) descuenta stock y registra usuario y fecha (RNF-11)
+
+    error: operator is not unique: unknown * unknown
+
+    [0m [90m 135 |[39m
+     [90m 136 |[39m       [36mconst[39m signo [33m=[39m data[33m.[39mtipo [33m===[39m [32m'entrada'[39m [33m?[39m [35m1[39m [33m:[39m [33m-[39m[35m1[39m[33m;[39m
+    [31m[1m>[22m[39m[90m 137 |[39m       [36mconst[39m stockResult [33m=[39m [36mawait[39m client[33m.[39mquery(
+     [90m     |[39m                           [31m[1m^[22m[39m
+     [90m 138 |[39m         [32m`UPDATE insumos SET stock_actual = stock_actual + ($1 * $2) WHERE id = $3[39m
+     [90m 139 |[39m [32m         RETURNING stock_actual, stock_minimo`[39m[33m,[39m
+     [90m 140 |[39m         [data[33m.[39mcantidad[33m,[39m signo[33m,[39m data[33m.[39minsumo_id][0m
+
+      at node_modules/pg/lib/client.js:631:17
+      at InventarioService.createMovimiento (src/features/inventario/inventario.service.js:137:27)
+      at Object.<anonymous> (tests/integracion/bd/sis-sistema.bd.test.js:37:15)
+
+  ● SIS · servicios con la BD real (driver Jest) › SIS-03 · updatePedido (edición ADMIN) recalcula total y reemplaza ítems
+
+    error: bind message supplies 5 parameters, but prepared statement "" requires 4
+
+    [0m [90m 140 |[39m         )[33m;[39m
+     [90m 141 |[39m         [36mconst[39m precio [33m=[39m parseFloat(prod[33m.[39mrows[[35m0[39m][33m.[39mprecio_venta)[33m;[39m
+    [31m[1m>[22m[39m[90m 142 |[39m         [36mawait[39m client[33m.[39mquery(
+     [90m     |[39m         [31m[1m^[22m[39m
+     [90m 143 |[39m           [32m`INSERT INTO pedido_items (pedido_id, producto_id, cantidad, precio_unitario)[39m
+     [90m 144 |[39m [32m           VALUES ($1, $2, $3, $4)`[39m[33m,[39m
+     [90m 145 |[39m           [id[33m,[39m item[33m.[39mproducto_id[33m,[39m item[33m.[39mcantidad[33m,[39m precio[33m,[39m precio [33m*[39m item[33m.[39mcantidad][0m
+
+      at node_modules/pg/lib/client.js:631:17
+      at PedidosService.updatePedido (src/features/pedidos/pedidos.service.js:142:9)
+      at Object.<anonymous> (tests/integracion/bd/sis-sistema.bd.test.js:59:21)
+
+  ● SIS · API completa con la BD real (Supertest) › SIS-04 · EMPLEADO consulta el menú SIN costo ni margen (RF-09)
+
+    expect(received).not.toHaveProperty(path)
+
+    Expected path: not "costo_produccion"
+
+    Received value: "15000.00"
+
+    [0m [90m 70 |[39m     expect(res[33m.[39mbody[33m.[39mlength)[33m.[39mtoBeGreaterThan([35m0[39m)[33m;[39m
+     [90m 71 |[39m     res[33m.[39mbody[33m.[39mforEach((p) [33m=>[39m {
+    [31m[1m>[22m[39m[90m 72 |[39m       expect(p)[33m.[39mnot[33m.[39mtoHaveProperty([32m'costo_produccion'[39m)[33m;[39m
+     [90m    |[39m                     [31m[1m^[22m[39m
+     [90m 73 |[39m       expect(p)[33m.[39mnot[33m.[39mtoHaveProperty([32m'margen'[39m)[33m;[39m
+     [90m 74 |[39m     })[33m;[39m
+     [90m 75 |[39m   })[33m;[39m[0m
+
+      at toHaveProperty (tests/integracion/bd/sis-sistema.bd.test.js:72:21)
+          at Array.forEach (<anonymous>)
+      at Object.forEach (tests/integracion/bd/sis-sistema.bd.test.js:71:14)
+
+  ● SIS · API completa con la BD real (Supertest) › SIS-06 · Historial con fecha_inicio = fecha_fin = hoy incluye las acciones de hoy (valor límite)
+
+    expect(received).toBeGreaterThan(expected)
+
+    Expected: > 0
+    Received:   0
+
+    [0m [90m 90 |[39m       [33m.[39m[36mset[39m([32m'Authorization'[39m[33m,[39m ctx[33m.[39mjefe[33m.[39mauth)[33m;[39m
+     [90m 91 |[39m     expect(res[33m.[39mstatus)[33m.[39mtoBe([35m200[39m)[33m;[39m
+    [31m[1m>[22m[39m[90m 92 |[39m     expect(res[33m.[39mbody[33m.[39mtotal)[33m.[39mtoBeGreaterThan([35m0[39m)[33m;[39m                  [90m// SIS-03 registró "Pedido creado" hoy[39m
+     [90m    |[39m                            [31m[1m^[22m[39m
+     [90m 93 |[39m   })[33m;[39m
+     [90m 94 |[39m })[33m;[39m
+     [90m 95 |[39m[0m
+
+      at Object.toBeGreaterThan (tests/integracion/bd/sis-sistema.bd.test.js:92:28)
+
+  console.log
+    ✅ Brasas-OS conectado a Supabase con éxito en el puerto 6543
+
+      at Query.log (src/shared/database/db.js:34:15)
+
+  console.log
+    ✅ Brasas-OS conectado a Supabase con éxito en el puerto 6543
+
+      at Query.log (src/shared/database/db.js:34:15)
+
+FAIL tests/integracion/bd/d-persistencia.bd.test.js
+  ● D2 · hoja con driver (cliente pg independiente) › D2-04 · Los roles admin, jefe y empleado están cargados (los usa el registro)
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: ArrayContaining ["admin", "jefe", "empleado"]
+    Received: ["administrador", "jefe", "empleado"]
+
+    [0m [90m 42 |[39m   test([32m'D2-04 · Los roles admin, jefe y empleado están cargados (los usa el registro)'[39m[33m,[39m [36masync[39m () [33m=>[39m {
+     [90m 43 |[39m     [36mconst[39m r [33m=[39m [36mawait[39m cliente[33m.[39mquery([32m'SELECT LOWER(nombre) AS nombre FROM roles'[39m)[33m;[39m
+    [31m[1m>[22m[39m[90m 44 |[39m     expect(r[33m.[39mrows[33m.[39mmap((x) [33m=>[39m x[33m.[39mnombre))[33m.[39mtoEqual(expect[33m.[39marrayContaining([[32m'admin'[39m[33m,[39m [32m'jefe'[39m[33m,[39m [32m'empleado'[39m]))[33m;[39m
+     [90m    |[39m                                         [31m[1m^[22m[39m
+     [90m 45 |[39m   })[33m;[39m
+     [90m 46 |[39m })[33m;[39m
+     [90m 47 |[39m[0m
+
+      at Object.toEqual (tests/integracion/bd/d-persistencia.bd.test.js:44:41)
+
+  console.log
+    ✅ Brasas-OS conectado a Supabase con éxito en el puerto 6543
+
+      at Query.log (src/shared/database/db.js:34:15)
+
+  console.error
+    Error creating entrada: error: operator is not unique: unknown * unknown
+        at M:\Documentos\prog\Pro Web\BRASAS\apps\api\node_modules\pg\lib\client.js:631:17
+        at processTicksAndRejections (node:internal/process/task_queues:104:5)
+        at InventarioService.createMovimiento (M:\Documentos\prog\Pro Web\BRASAS\apps\api\src\features\inventario\inventario.service.js:137:27)
+        at createEntrada (M:\Documentos\prog\Pro Web\BRASAS\apps\api\src\features\inventario\inventario.controller.js:107:23) {
+      length: 190,
+      severity: 'ERROR',
+      code: '42725',
+      detail: undefined,
+      hint: 'Could not choose a best candidate operator. You might need to add explicit type casts.',
+      position: '54',
+      internalPosition: undefined,
+      internalQuery: undefined,
+      where: undefined,
+      schema: undefined,
+      table: undefined,
+      column: undefined,
+      dataType: undefined,
+      constraint: undefined,
+      file: 'parse_oper.c',
+      line: '627',
+      routine: 'op_error'
+    }
+
+    [0m [90m 119 |[39m       [36mreturn[39m res[33m.[39mstatus([35m404[39m)[33m.[39mjson({ message[33m:[39m [32m'Insumo no encontrado'[39m })[33m;[39m
+     [90m 120 |[39m     }
+    [31m[1m>[22m[39m[90m 121 |[39m     console[33m.[39merror([32m'Error creating entrada:'[39m[33m,[39m error)[33m;[39m
+     [90m     |[39m             [31m[1m^[22m[39m
+     [90m 122 |[39m     res[33m.[39mstatus([35m500[39m)[33m.[39mjson({ message[33m:[39m [32m'Error interno del servidor'[39m })[33m;[39m
+     [90m 123 |[39m   }
+     [90m 124 |[39m }[33m;[39m[0m
+
+      at error (src/features/inventario/inventario.controller.js:121:13)
+
+FAIL tests/integracion/hilos/h05-historial-por-rol.bd.test.js
+  ● CI-H05-01 · Vista del JEFE: acciones de negocio de su local › Paso 4 · Incluye la entrada de inventario registrada por el JEFE (entidad inventario)
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+    [0m [90m 45 |[39m   test([32m'Paso 4 · Incluye la entrada de inventario registrada por el JEFE (entidad inventario)'[39m[33m,[39m [36masync[39m () [33m=>[39m {
+     [90m 46 |[39m     [36mconst[39m r [33m=[39m [36mawait[39m historial(ctx[33m.[39mjefe[33m.[39mauth)[33m;[39m
+    [31m[1m>[22m[39m[90m 47 |[39m     expect(r[33m.[39mbody[33m.[39mdata[33m.[39msome((h) [33m=>[39m h[33m.[39mentidad [33m===[39m [32m'inventario'[39m))[33m.[39mtoBe([36mtrue[39m)[33m;[39m
+     [90m    |[39m                                                                 [31m[1m^[22m[39m
+     [90m 48 |[39m   })[33m;[39m
+     [90m 49 |[39m })[33m;[39m
+     [90m 50 |[39m[0m
+
+      at Object.toBe (tests/integracion/hilos/h05-historial-por-rol.bd.test.js:47:65)
+
+  ● CI-H05-03 · Filtros del historial › Paso 1 · tipo_accion=COMPLETAR → todas las filas son COMPLETAR
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+    [0m [90m 66 |[39m     [36mconst[39m r [33m=[39m [36mawait[39m historial(ctx[33m.[39mjefe[33m.[39mauth[33m,[39m [32m'&tipo_accion=COMPLETAR'[39m)[33m;[39m
+     [90m 67 |[39m     expect(r[33m.[39mbody[33m.[39mdata[33m.[39mlength)[33m.[39mtoBeGreaterThan([35m0[39m)[33m;[39m
+    [31m[1m>[22m[39m[90m 68 |[39m     expect(r[33m.[39mbody[33m.[39mdata[33m.[39mevery((h) [33m=>[39m h[33m.[39maccion [33m===[39m [32m'COMPLETAR'[39m))[33m.[39mtoBe([36mtrue[39m)[33m;[39m
+     [90m    |[39m                                                                [31m[1m^[22m[39m
+     [90m 69 |[39m   })[33m;[39m
+     [90m 70 |[39m
+     [90m 71 |[39m   test([32m'Paso 2 · fecha_inicio = fecha_fin = hoy → incluye las acciones de hoy (valor límite)'[39m[33m,[39m [36masync[39m () [33m=>[39m {[0m
+
+      at Object.toBe (tests/integracion/hilos/h05-historial-por-rol.bd.test.js:68:64)
+
+  ● CI-H05-03 · Filtros del historial › Paso 2 · fecha_inicio = fecha_fin = hoy → incluye las acciones de hoy (valor límite)
+
+    expect(received).toBeGreaterThan(expected)
+
+    Expected: > 0
+    Received:   0
+
+    [0m [90m 71 |[39m   test([32m'Paso 2 · fecha_inicio = fecha_fin = hoy → incluye las acciones de hoy (valor límite)'[39m[33m,[39m [36masync[39m () [33m=>[39m {
+     [90m 72 |[39m     [36mconst[39m r [33m=[39m [36mawait[39m historial(ctx[33m.[39mjefe[33m.[39mauth[33m,[39m [32m`&fecha_inicio=${hoy()}&fecha_fin=${hoy()}`[39m)[33m;[39m
+    [31m[1m>[22m[39m[90m 73 |[39m     expect(r[33m.[39mbody[33m.[39mtotal)[33m.[39mtoBeGreaterThan([35m0[39m)[33m;[39m
+     [90m    |[39m                          [31m[1m^[22m[39m
+     [90m 74 |[39m   })[33m;[39m
+     [90m 75 |[39m
+     [90m 76 |[39m   test([32m'Paso 3 · tipo_accion inexistente → 400'[39m[33m,[39m [36masync[39m () [33m=>[39m {[0m
+
+      at Object.toBeGreaterThan (tests/integracion/hilos/h05-historial-por-rol.bd.test.js:73:26)
+
+  console.log
+    ✅ Brasas-OS conectado a Supabase con éxito en el puerto 6543
+
+      at Query.log (src/shared/database/db.js:34:15)
+
+  console.error
+    Error creating entrada: error: operator is not unique: unknown * unknown
+        at M:\Documentos\prog\Pro Web\BRASAS\apps\api\node_modules\pg\lib\client.js:631:17
+        at processTicksAndRejections (node:internal/process/task_queues:104:5)
+        at InventarioService.createMovimiento (M:\Documentos\prog\Pro Web\BRASAS\apps\api\src\features\inventario\inventario.service.js:137:27)
+        at createEntrada (M:\Documentos\prog\Pro Web\BRASAS\apps\api\src\features\inventario\inventario.controller.js:107:23) {
+      length: 190,
+      severity: 'ERROR',
+      code: '42725',
+      detail: undefined,
+      hint: 'Could not choose a best candidate operator. You might need to add explicit type casts.',
+      position: '54',
+      internalPosition: undefined,
+      internalQuery: undefined,
+      where: undefined,
+      schema: undefined,
+      table: undefined,
+      column: undefined,
+      dataType: undefined,
+      constraint: undefined,
+      file: 'parse_oper.c',
+      line: '627',
+      routine: 'op_error'
+    }
+
+    [0m [90m 119 |[39m       [36mreturn[39m res[33m.[39mstatus([35m404[39m)[33m.[39mjson({ message[33m:[39m [32m'Insumo no encontrado'[39m })[33m;[39m
+     [90m 120 |[39m     }
+    [31m[1m>[22m[39m[90m 121 |[39m     console[33m.[39merror([32m'Error creating entrada:'[39m[33m,[39m error)[33m;[39m
+     [90m     |[39m             [31m[1m^[22m[39m
+     [90m 122 |[39m     res[33m.[39mstatus([35m500[39m)[33m.[39mjson({ message[33m:[39m [32m'Error interno del servidor'[39m })[33m;[39m
+     [90m 123 |[39m   }
+     [90m 124 |[39m }[33m;[39m[0m
+
+      at error (src/features/inventario/inventario.controller.js:121:13)
+
+  console.error
+    Error creating entrada: error: new row for relation "stock_movimientos" violates check constraint "mov_cantidad_positiva"
+        at M:\Documentos\prog\Pro Web\BRASAS\apps\api\node_modules\pg\lib\client.js:631:17
+        at processTicksAndRejections (node:internal/process/task_queues:104:5)
+        at InventarioService.createMovimiento (M:\Documentos\prog\Pro Web\BRASAS\apps\api\src\features\inventario\inventario.service.js:129:25)
+        at createEntrada (M:\Documentos\prog\Pro Web\BRASAS\apps\api\src\features\inventario\inventario.controller.js:107:23) {
+      length: 419,
+      severity: 'ERROR',
+      code: '23514',
+      detail: 'Failing row contains (8e4a73a0-24b8-44a6-9cb3-cc028deb2ed1, 55156dc1-007b-4fb3-b6f7-21fe8d2f85be, 6e55eddc-d3b0-4663-ac36-6cca1bf013ae, null, null, entrada, -5.000, 30000.0000, null, 2026-10-24 03:12:12.858049+00).',
+      hint: undefined,
+      position: undefined,
+      internalPosition: undefined,
+      internalQuery: undefined,
+      where: undefined,
+      schema: 'public',
+      table: 'stock_movimientos',
+      column: undefined,
+      dataType: undefined,
+      constraint: 'mov_cantidad_positiva',
+      file: 'execMain.c',
+      line: '2033',
+      routine: 'ExecConstraints'
+    }
+
+    [0m [90m 119 |[39m       [36mreturn[39m res[33m.[39mstatus([35m404[39m)[33m.[39mjson({ message[33m:[39m [32m'Insumo no encontrado'[39m })[33m;[39m
+     [90m 120 |[39m     }
+    [31m[1m>[22m[39m[90m 121 |[39m     console[33m.[39merror([32m'Error creating entrada:'[39m[33m,[39m error)[33m;[39m
+     [90m     |[39m             [31m[1m^[22m[39m
+     [90m 122 |[39m     res[33m.[39mstatus([35m500[39m)[33m.[39mjson({ message[33m:[39m [32m'Error interno del servidor'[39m })[33m;[39m
+     [90m 123 |[39m   }
+     [90m 124 |[39m }[33m;[39m[0m
+
+      at error (src/features/inventario/inventario.controller.js:121:13)
+
+FAIL tests/integracion/hilos/h02-movimientos-inventario.bd.test.js
+  ● CI-H02-01 · Compra de carne (entrada) y su efecto en costos e historial › Paso 1 · Entrada de 5 kg a $30.000/kg → 201, stock 2 → 7 y sin alerta
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 201
+    Received: 500
+
+    [0m [90m 27 |[39m   test([32m'Paso 1 · Entrada de 5 kg a $30.000/kg → 201, stock 2 → 7 y sin alerta'[39m[33m,[39m [36masync[39m () [33m=>[39m {
+     [90m 28 |[39m     [36mconst[39m res [33m=[39m [36mawait[39m movimiento([32m'entrada'[39m[33m,[39m { cantidad[33m:[39m [35m5[39m[33m,[39m costo_unitario[33m:[39m [35m30000[39m[33m,[39m motivo[33m:[39m [32m'Compra proveedor'[39m })[33m;[39m
+    [31m[1m>[22m[39m[90m 29 |[39m     expect(res[33m.[39mstatus)[33m.[39mtoBe([35m201[39m)[33m;[39m
+     [90m    |[39m                        [31m[1m^[22m[39m
+     [90m 30 |[39m     expect(parseFloat(res[33m.[39mbody[33m.[39mstock_actual))[33m.[39mtoBe([35m7[39m)[33m;[39m
+     [90m 31 |[39m     expect(res[33m.[39mbody[33m.[39malerta_stock)[33m.[39mtoBe([36mfalse[39m)[33m;[39m
+     [90m 32 |[39m   })[33m;[39m[0m
+
+      at Object.toBe (tests/integracion/hilos/h02-movimientos-inventario.bd.test.js:29:24)
+
+  ● CI-H02-01 · Compra de carne (entrada) y su efecto en costos e historial › Paso 2 · El movimiento queda con usuario, cantidad, costo y fecha (RNF-11)
+
+    expect(received).toMatchObject(expected)
+
+    Matcher error: received value must be a non-null object
+
+    Received has value: undefined
+
+    [0m [90m 34 |[39m   test([32m'Paso 2 · El movimiento queda con usuario, cantidad, costo y fecha (RNF-11)'[39m[33m,[39m [36masync[39m () [33m=>[39m {
+     [90m 35 |[39m     [36mconst[39m res [33m=[39m [36mawait[39m api()[33m.[39m[36mget[39m([32m`/api/v1/inventario/movimientos?insumo_id=${punta.id}`[39m)[33m.[39m[36mset[39m([32m'Authorization'[39m[33m,[39m ctx[33m.[39mjefe[33m.[39mauth)[33m;[39m
+    [31m[1m>[22m[39m[90m 36 |[39m     expect(res[33m.[39mbody[[35m0[39m])[33m.[39mtoMatchObject({ tipo[33m:[39m [32m'entrada'[39m[33m,[39m usuario_id[33m:[39m ctx[33m.[39mjefe[33m.[39mid })[33m;[39m
+     [90m    |[39m                         [31m[1m^[22m[39m
+     [90m 37 |[39m     expect(parseFloat(res[33m.[39mbody[[35m0[39m][33m.[39mcantidad))[33m.[39mtoBe([35m5[39m)[33m;[39m
+     [90m 38 |[39m     expect(res[33m.[39mbody[[35m0[39m][33m.[39mcreated_at)[33m.[39mtoBeTruthy()[33m;[39m
+     [90m 39 |[39m   })[33m;[39m[0m
+
+      at Object.toMatchObject (tests/integracion/hilos/h02-movimientos-inventario.bd.test.js:36:25)
+
+  ● CI-H02-01 · Compra de carne (entrada) y su efecto en costos e historial › Paso 3 · El resumen diario suma $150.000 de costo de inventario (5 × 30.000)
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 150000
+    Received: 0
+
+    [0m [90m 41 |[39m   test([32m'Paso 3 · El resumen diario suma $150.000 de costo de inventario (5 × 30.000)'[39m[33m,[39m [36masync[39m () [33m=>[39m {
+     [90m 42 |[39m     [36mconst[39m res [33m=[39m [36mawait[39m api()[33m.[39m[36mget[39m([32m'/api/v1/reportes/resumen?periodo=diario'[39m)[33m.[39m[36mset[39m([32m'Authorization'[39m[33m,[39m ctx[33m.[39mjefe[33m.[39mauth)[33m;[39m
+    [31m[1m>[22m[39m[90m 43 |[39m     expect(res[33m.[39mbody[33m.[39mcosto_inventario)[33m.[39mtoBe([35m150000[39m)[33m;[39m
+     [90m    |[39m                                       [31m[1m^[22m[39m
+     [90m 44 |[39m   })[33m;[39m
+     [90m 45 |[39m
+     [90m 46 |[39m   test([32m'Paso 4 · El JEFE ve la entrada en su historial (entidad inventario) (RF-23)'[39m[33m,[39m [36masync[39m () [33m=>[39m {[0m
+
+      at Object.toBe (tests/integracion/hilos/h02-movimientos-inventario.bd.test.js:43:39)
+
+  ● CI-H02-01 · Compra de carne (entrada) y su efecto en costos e historial › Paso 4 · El JEFE ve la entrada en su historial (entidad inventario) (RF-23)
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+    [0m [90m 46 |[39m   test([32m'Paso 4 · El JEFE ve la entrada en su historial (entidad inventario) (RF-23)'[39m[33m,[39m [36masync[39m () [33m=>[39m {
+     [90m 47 |[39m     [36mconst[39m res [33m=[39m [36mawait[39m api()[33m.[39m[36mget[39m([32m'/api/v1/historial?limit=50'[39m)[33m.[39m[36mset[39m([32m'Authorization'[39m[33m,[39m ctx[33m.[39mjefe[33m.[39mauth)[33m;[39m
+    [31m[1m>[22m[39m[90m 48 |[39m     expect(res[33m.[39mbody[33m.[39mdata[33m.[39msome((h) [33m=>[39m h[33m.[39mentidad [33m===[39m [32m'inventario'[39m))[33m.[39mtoBe([36mtrue[39m)[33m;[39m
+     [90m    |[39m                                                                   [31m[1m^[22m[39m
+     [90m 49 |[39m   })[33m;[39m
+     [90m 50 |[39m })[33m;[39m
+     [90m 51 |[39m[0m
+
+      at Object.toBe (tests/integracion/hilos/h02-movimientos-inventario.bd.test.js:48:67)
+
+  ● CI-H02-02 · Salida por descarte que activa la alerta de stock mínimo › Paso 1 · Salida de 4,5 kg (7 → 2,5; mínimo 3) → 201 y alerta_stock = true (RF-14)
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 201
+    Received: 400
+
+    [0m [90m 53 |[39m   test([32m'Paso 1 · Salida de 4,5 kg (7 → 2,5; mínimo 3) → 201 y alerta_stock = true (RF-14)'[39m[33m,[39m [36masync[39m () [33m=>[39m {
+     [90m 54 |[39m     [36mconst[39m res [33m=[39m [36mawait[39m movimiento([32m'salida'[39m[33m,[39m { cantidad[33m:[39m [35m4.5[39m[33m,[39m motivo[33m:[39m [32m'Descarte'[39m })[33m;[39m
+    [31m[1m>[22m[39m[90m 55 |[39m     expect(res[33m.[39mstatus)[33m.[39mtoBe([35m201[39m)[33m;[39m
+     [90m    |[39m                        [31m[1m^[22m[39m
+     [90m 56 |[39m     expect(res[33m.[39mbody[33m.[39malerta_stock)[33m.[39mtoBe([36mtrue[39m)[33m;[39m
+     [90m 57 |[39m   })[33m;[39m
+     [90m 58 |[39m[0m
+
+      at Object.toBe (tests/integracion/hilos/h02-movimientos-inventario.bd.test.js:55:24)
+
+  ● CI-H02-02 · Salida por descarte que activa la alerta de stock mínimo › Paso 2 · El listado de insumos muestra 2,5 kg
+
+    expect(received).toBeCloseTo(expected)
+
+    Expected: 2.5
+    Received: 2
+
+    Expected precision:    2
+    Expected difference: < 0.005
+    Received difference:   0.5
+
+    [0m [90m 58 |[39m
+     [90m 59 |[39m   test([32m'Paso 2 · El listado de insumos muestra 2,5 kg'[39m[33m,[39m [36masync[39m () [33m=>[39m {
+    [31m[1m>[22m[39m[90m 60 |[39m     expect([36mawait[39m stock())[33m.[39mtoBeCloseTo([35m2.5[39m)[33m;[39m
+     [90m    |[39m                           [31m[1m^[22m[39m
+     [90m 61 |[39m   })[33m;[39m
+     [90m 62 |[39m })[33m;[39m
+     [90m 63 |[39m[0m
+
+      at Object.toBeCloseTo (tests/integracion/hilos/h02-movimientos-inventario.bd.test.js:60:27)
+
+  ● CI-H02-03 · Movimientos que no deben alterar el stock (RNF-10) › Paso 2 · Entrada con cantidad negativa (−5) → 400
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 400
+    Received: 500
+
+    [0m [90m 68 |[39m
+     [90m 69 |[39m   test([32m'Paso 2 · Entrada con cantidad negativa (−5) → 400'[39m[33m,[39m [36masync[39m () [33m=>[39m {
+    [31m[1m>[22m[39m[90m 70 |[39m     expect(([36mawait[39m movimiento([32m'entrada'[39m[33m,[39m { cantidad[33m:[39m [33m-[39m[35m5[39m[33m,[39m costo_unitario[33m:[39m [35m30000[39m }))[33m.[39mstatus)[33m.[39mtoBe([35m400[39m)[33m;[39m
+     [90m    |[39m                                                                                           [31m[1m^[22m[39m
+     [90m 71 |[39m   })[33m;[39m
+     [90m 72 |[39m
+     [90m 73 |[39m   test([32m'Paso 3 · El stock sigue en 2,5 kg y nunca queda negativo'[39m[33m,[39m [36masync[39m () [33m=>[39m {[0m
+
+      at Object.toBe (tests/integracion/hilos/h02-movimientos-inventario.bd.test.js:70:91)
+
+  ● CI-H02-03 · Movimientos que no deben alterar el stock (RNF-10) › Paso 3 · El stock sigue en 2,5 kg y nunca queda negativo
+
+    expect(received).toBeCloseTo(expected)
+
+    Expected: 2.5
+    Received: 2
+
+    Expected precision:    2
+    Expected difference: < 0.005
+    Received difference:   0.5
+
+    [0m [90m 73 |[39m   test([32m'Paso 3 · El stock sigue en 2,5 kg y nunca queda negativo'[39m[33m,[39m [36masync[39m () [33m=>[39m {
+     [90m 74 |[39m     [36mconst[39m actual [33m=[39m [36mawait[39m stock()[33m;[39m
+    [31m[1m>[22m[39m[90m 75 |[39m     expect(actual)[33m.[39mtoBeCloseTo([35m2.5[39m)[33m;[39m
+     [90m    |[39m                    [31m[1m^[22m[39m
+     [90m 76 |[39m     expect(actual)[33m.[39mtoBeGreaterThanOrEqual([35m0[39m)[33m;[39m
+     [90m 77 |[39m   })[33m;[39m
+     [90m 78 |[39m })[33m;[39m[0m
+
+      at Object.toBeCloseTo (tests/integracion/hilos/h02-movimientos-inventario.bd.test.js:75:20)
+
+  console.log
+    ✅ Brasas-OS conectado a Supabase con éxito en el puerto 6543
+
+      at Query.log (src/shared/database/db.js:34:15)
+
+Test Suites: 5 failed, 2 passed, 7 total
+Tests:       19 failed, 44 passed, 63 total
+Snapshots:   0 total
+Time:        35.041 s
+Ran all test suites matching tests/integracion/bd|tests/integracion/hilos.

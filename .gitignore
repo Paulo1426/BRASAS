@@ -37,3 +37,16 @@ dist/
 graphify-out/
 .claude/
 CLAUDE.md
+
+# env de pruebas
+.env.*
+
+# resultados generados de pruebas
+apps/api/coverage/
+apps/web/cypress/screenshots/
+apps/web/cypress/videos/
+e2e/evidencias/
+docs/resultados/capturas-cypress/
+docs/resultados/lighthouse/
+docs/resultados/jmeter/rep20/
+docs/resultados/jmeter/*.png
