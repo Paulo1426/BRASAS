@@ -1,0 +1,88 @@
+{
+ "SG-03": [
+  [
+   "/pedidos/todos",
+   401
+  ],
+  [
+   "/inventario/insumos",
+   401
+  ],
+  [
+   "/productos",
+   401
+  ],
+  [
+   "/reportes/resumen",
+   401
+  ],
+  [
+   "/historial",
+   401
+  ]
+ ],
+ "SG-04": [
+  [
+   "/reportes/resumen",
+   403
+  ],
+  [
+   "/inventario/insumos",
+   403
+  ],
+  [
+   "/historial",
+   200
+  ],
+  [
+   "/reportes/pagos",
+   403
+  ]
+ ],
+ "SG-05": {
+  "iat": 1792879154,
+  "exp": 1792907954,
+  "horas": 8.0
+ },
+ "SG-07": {
+  "sin_filtro": [
+   200,
+   6
+  ],
+  "inyeccion": [
+   500,
+   1,
+   "{\"message\":\"Error interno del servidor\"}"
+  ]
+ },
+ "SG-08": {
+  "post": [
+   201,
+   "{\"id\":\"4f6a5086-18fb-4d09-aa2b-370b6f9b9c65\",\"nombre\":\"<img src=x onerror=alert(1)>\",\"precio_venta\":\"10000.00\",\"costo_pr"
+  ]
+ },
+ "SG-09": {
+  "codigos": [
+   401,
+   401,
+   401,
+   401,
+   401,
+   401,
+   401,
+   401,
+   401,
+   401,
+   401,
+   401,
+   401,
+   401,
+   401,
+   401,
+   401,
+   401,
+   401,
+   401
+  ]
+ }
+}

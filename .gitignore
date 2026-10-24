@@ -50,3 +50,6 @@ docs/resultados/capturas-cypress/
 docs/resultados/lighthouse/
 docs/resultados/jmeter/rep20/
 docs/resultados/jmeter/*.png
+docs/resultados/jmeter/rep_s150/
+docs/resultados/capturas-app/
+docs/resultados/zap/*.png
