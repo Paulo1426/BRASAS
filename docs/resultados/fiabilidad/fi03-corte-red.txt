@@ -1,0 +1,77 @@
+23:08:51.268 línea base: 200
+23:08:51.354 CORTE DE RED (se destruyen las conexiones a la BD)
+23:08:51.354 durante el corte: ERR ECONNRESET
+PROCESO DE LA API TERMINÓ, código 1
+23:08:52.376 durante el corte: ERR ECONNREFUSED
+23:08:53.393 durante el corte: ERR ECONNREFUSED
+23:08:54.403 durante el corte: ERR ECONNREFUSED
+23:08:55.413 durante el corte: ERR ECONNREFUSED
+23:08:56.427 durante el corte: ERR ECONNREFUSED
+23:08:57.441 durante el corte: ERR ECONNREFUSED
+23:08:58.453 durante el corte: ERR ECONNREFUSED
+23:08:59.461 durante el corte: ERR ECONNREFUSED
+23:09:00.472 durante el corte: ERR ECONNREFUSED
+23:09:01.488 durante el corte: ERR ECONNREFUSED
+23:09:02.501 durante el corte: ERR ECONNREFUSED
+23:09:03.511 RED RESTABLECIDA
+23:09:03.513 tras restablecer: ERR ECONNREFUSED
+23:09:04.522 tras restablecer: ERR ECONNREFUSED
+23:09:05.533 tras restablecer: ERR ECONNREFUSED
+23:09:06.544 tras restablecer: ERR ECONNREFUSED
+23:09:07.559 tras restablecer: ERR ECONNREFUSED
+23:09:08.565 tras restablecer: ERR ECONNREFUSED
+23:09:09.582 tras restablecer: ERR ECONNREFUSED
+23:09:10.593 tras restablecer: ERR ECONNREFUSED
+23:09:11.604 tras restablecer: ERR ECONNREFUSED
+23:09:12.625 tras restablecer: ERR ECONNREFUSED
+23:09:13.631 tras restablecer: ERR ECONNREFUSED
+23:09:14.646 tras restablecer: ERR ECONNREFUSED
+23:09:15.662 tras restablecer: ERR ECONNREFUSED
+23:09:16.670 tras restablecer: ERR ECONNREFUSED
+23:09:17.686 tras restablecer: ERR ECONNREFUSED
+23:09:18.701 tras restablecer: ERR ECONNREFUSED
+23:09:19.709 tras restablecer: ERR ECONNREFUSED
+23:09:20.725 tras restablecer: ERR ECONNREFUSED
+23:09:21.729 tras restablecer: ERR ECONNREFUSED
+23:09:22.740 tras restablecer: ERR ECONNREFUSED
+23:09:23.749 tras restablecer: ERR ECONNREFUSED
+23:09:24.766 tras restablecer: ERR ECONNREFUSED
+23:09:25.776 tras restablecer: ERR ECONNREFUSED
+23:09:26.792 tras restablecer: ERR ECONNREFUSED
+23:09:27.806 tras restablecer: ERR ECONNREFUSED
+23:09:28.809 tras restablecer: ERR ECONNREFUSED
+23:09:29.825 tras restablecer: ERR ECONNREFUSED
+23:09:30.833 tras restablecer: ERR ECONNREFUSED
+23:09:31.841 tras restablecer: ERR ECONNREFUSED
+23:09:32.858 tras restablecer: ERR ECONNREFUSED
+23:09:33.869 tras restablecer: ERR ECONNREFUSED
+23:09:34.881 tras restablecer: ERR ECONNREFUSED
+23:09:35.895 tras restablecer: ERR ECONNREFUSED
+23:09:36.906 tras restablecer: ERR ECONNREFUSED
+23:09:37.912 tras restablecer: ERR ECONNREFUSED
+23:09:38.924 tras restablecer: ERR ECONNREFUSED
+23:09:39.929 tras restablecer: ERR ECONNREFUSED
+23:09:40.944 tras restablecer: ERR ECONNREFUSED
+23:09:41.960 tras restablecer: ERR ECONNREFUSED
+23:09:42.975 tras restablecer: ERR ECONNREFUSED
+23:09:43.996 tras restablecer: ERR ECONNREFUSED
+23:09:45.000 tras restablecer: ERR ECONNREFUSED
+23:09:46.016 tras restablecer: ERR ECONNREFUSED
+23:09:47.029 tras restablecer: ERR ECONNREFUSED
+23:09:48.039 tras restablecer: ERR ECONNREFUSED
+23:09:49.058 tras restablecer: ERR ECONNREFUSED
+23:09:50.071 tras restablecer: ERR ECONNREFUSED
+23:09:51.073 tras restablecer: ERR ECONNREFUSED
+23:09:52.074 tras restablecer: ERR ECONNREFUSED
+23:09:53.086 tras restablecer: ERR ECONNREFUSED
+23:09:54.097 tras restablecer: ERR ECONNREFUSED
+23:09:55.112 tras restablecer: ERR ECONNREFUSED
+23:09:56.127 tras restablecer: ERR ECONNREFUSED
+23:09:57.141 tras restablecer: ERR ECONNREFUSED
+23:09:58.155 tras restablecer: ERR ECONNREFUSED
+23:09:59.170 tras restablecer: ERR ECONNREFUSED
+23:10:00.173 tras restablecer: ERR ECONNREFUSED
+23:10:01.187 tras restablecer: ERR ECONNREFUSED
+23:10:02.196 tras restablecer: ERR ECONNREFUSED
+23:10:03.213 tras restablecer: ERR ECONNREFUSED
+23:10:04.230 {"api_viva":false,"mttr_s":null,"corte_s":"12.2"}
