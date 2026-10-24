@@ -33,15 +33,8 @@ dist/
 *.user
 *.package.json
 *.package-lock.json
-# graphify / claude
-graphify-out/
-.claude/
-CLAUDE.md
-
-# env de pruebas
+# env y resultados de pruebas
 .env.*
-
-# resultados generados de pruebas
 apps/api/coverage/
 apps/web/cypress/screenshots/
 apps/web/cypress/videos/
