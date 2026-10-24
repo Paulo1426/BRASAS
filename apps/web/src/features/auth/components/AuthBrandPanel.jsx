@@ -28,7 +28,7 @@ export const AuthBrandPanel = ({ mode = "login", image, title, subtitle }) => {
         <div className="w-24 h-24 border-3 border-white/30 rounded-full flex items-center justify-center mb-6 shadow-lg backdrop-blur-sm bg-white/10">
           <FaFire className="text-5xl text-white" />
         </div>
-        <h1 className="text-4xl font-heading font-bold text-[#f5f0eb] mb-2">{title}</h1>
+        <h1 className="text-4xl font-heading font-bold text-[#2a1810] mb-2">{title}</h1>
         <p className="text-lg text-white/70 mb-12 max-w-sm font-body">{subtitle}</p>
 
         <div className="space-y-8 text-left w-full max-w-sm">

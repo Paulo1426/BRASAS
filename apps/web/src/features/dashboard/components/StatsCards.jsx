@@ -31,7 +31,7 @@ const StatCard = ({ titulo, valor, icono: Icon, color, subtexto }) => (
       </div>
     </div>
     <p className="text-sm text-white/50 font-body mb-1">{titulo}</p>
-    <p className="text-2xl font-bold text-[#f5f0eb] font-number animate-value-flicker">{valor}</p>
+    <p className="text-2xl font-bold text-[#2a1810] font-number animate-value-flicker">{valor}</p>
     {subtexto && <p className="text-xs text-white/30 mt-1.5 font-body">{subtexto}</p>}
   </div>
 );

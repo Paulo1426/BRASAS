@@ -52,7 +52,7 @@ export const OrdersPage = () => {
               <FaShoppingCart className="text-xl text-orange-400" />
             </div>
             <div>
-              <h1 className="text-2xl md:text-3xl font-heading font-bold text-[#f5f0eb]">
+              <h1 className="text-2xl md:text-3xl font-heading font-bold text-[#2a1810]">
                 {isAdminOrJefe ? "Pedidos" : "Mis Pedidos"}
               </h1>
               <p className="text-sm text-white/40 font-body">
@@ -61,7 +61,7 @@ export const OrdersPage = () => {
             </div>
           </div>
           <button onClick={() => setShowModal(true)}
-            className="flex items-center gap-2 px-5 py-2.5 bg-orange-600 text-white rounded-xl font-semibold text-sm hover:bg-orange-500 transition-all shadow-lg shadow-orange-600/20 font-body">
+            className="flex items-center gap-2 px-5 py-2.5 bg-orange-600 text-[#fff9ec] rounded-xl font-semibold text-sm hover:bg-orange-500 transition-all shadow-lg shadow-orange-600/20 font-body">
             <FaPlus /> Nuevo Pedido
           </button>
         </div>

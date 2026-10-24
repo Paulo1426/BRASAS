@@ -13,8 +13,8 @@ const TooltipCustom = ({ active, payload, label }) => {
   if (!active || !payload?.length) return null;
   const esReal = payload[0]?.name === "real";
   return (
-    <div className="bg-[#1a1a1a] border border-white/10 rounded-xl p-3 text-xs font-body space-y-1">
-      <p className="text-[#f5f0eb] font-semibold">{label}</p>
+    <div className="bg-[#d8c9a8] border border-white/10 rounded-xl p-3 text-xs font-body space-y-1">
+      <p className="text-[#2a1810] font-semibold">{label}</p>
       {payload.map((p) => p.value != null && (
         <p key={p.name} style={{ color: p.color }}>
           {p.name === "real" ? "✓ Vendido" : "~ Estimado"}: {fmt(p.value)}
@@ -43,7 +43,7 @@ export const VentasLineChart = ({ meses = [] }) => {
 
   return (
     <div className="glass rounded-2xl p-5">
-      <h3 className="text-base font-heading font-bold text-[#f5f0eb] mb-0.5">
+      <h3 className="text-base font-heading font-bold text-[#2a1810] mb-0.5">
         Ventas por mes
       </h3>
       <p className="text-xs text-white/40 font-body mb-4">
@@ -62,12 +62,12 @@ export const VentasLineChart = ({ meses = [] }) => {
           <ComposedChart data={data} margin={{ top: 5, right: 8, left: 0, bottom: 5 }}>
             <defs>
               <linearGradient id="gradReal" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%"  stopColor="#34d399" stopOpacity={0.25} />
-                <stop offset="95%" stopColor="#34d399" stopOpacity={0} />
+                <stop offset="5%"  stopColor="#16a34a" stopOpacity={0.25} />
+                <stop offset="95%" stopColor="#16a34a" stopOpacity={0} />
               </linearGradient>
               <linearGradient id="gradProy" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%"  stopColor="#f97316" stopOpacity={0.15} />
-                <stop offset="95%" stopColor="#f97316" stopOpacity={0} />
+                <stop offset="5%"  stopColor="#ff6b35" stopOpacity={0.15} />
+                <stop offset="95%" stopColor="#ff6b35" stopOpacity={0} />
               </linearGradient>
             </defs>
 
@@ -90,10 +90,10 @@ export const VentasLineChart = ({ meses = [] }) => {
               />
             )}
 
-            <Area type="monotone" dataKey="real" stroke="#34d399" strokeWidth={2}
-              fill="url(#gradReal)" connectNulls dot={false} activeDot={{ r: 4, fill: "#34d399", strokeWidth: 0 }} />
-            <Area type="monotone" dataKey="proyectado" stroke="#f97316" strokeWidth={2} strokeDasharray="5 4"
-              fill="url(#gradProy)" connectNulls dot={false} activeDot={{ r: 4, fill: "#f97316", strokeWidth: 0 }} />
+            <Area type="monotone" dataKey="real" stroke="#16a34a" strokeWidth={2}
+              fill="url(#gradReal)" connectNulls dot={false} activeDot={{ r: 4, fill: "#16a34a", strokeWidth: 0 }} />
+            <Area type="monotone" dataKey="proyectado" stroke="#ff6b35" strokeWidth={2} strokeDasharray="5 4"
+              fill="url(#gradProy)" connectNulls dot={false} activeDot={{ r: 4, fill: "#ff6b35", strokeWidth: 0 }} />
           </ComposedChart>
         </ResponsiveContainer>
       )}

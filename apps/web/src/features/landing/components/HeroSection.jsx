@@ -8,7 +8,7 @@ const DashboardMockup = () => (
     {/* Glow behind */}
     <div className="absolute inset-0 bg-orange-600/10 blur-[60px] rounded-3xl" />
 
-    <div className="relative bg-[#0f0f0e] border border-white/[0.08] rounded-2xl overflow-hidden shadow-2xl shadow-black/60">
+    <div className="relative bg-[#dccfb1] border border-white/[0.08] rounded-2xl overflow-hidden shadow-2xl shadow-black/60">
       {/* Top bar */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-white/[0.06]">
         <div className="flex items-center gap-2">
@@ -33,7 +33,7 @@ const DashboardMockup = () => (
           ].map(({ label, value, up }) => (
             <div key={label} className="bg-white/[0.03] border border-white/[0.05] rounded-xl p-3">
               <p className="text-[9px] text-white/30 mb-1">{label}</p>
-              <p className={`text-sm font-bold font-mono ${up ? "text-[#f5f0eb]" : "text-red-400"}`}>{value}</p>
+              <p className={`text-sm font-bold font-mono ${up ? "text-[#2a1810]" : "text-red-400"}`}>{value}</p>
               <div className={`flex items-center gap-1 mt-1 text-[9px] ${up ? "text-emerald-400" : "text-red-400"}`}>
                 <FiTrendingUp className={up ? "" : "rotate-180"} />
                 <span>{up ? "+12% vs ayer" : "Reponer pronto"}</span>
@@ -109,7 +109,7 @@ export const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex flex-col justify-center pt-20 pb-12 overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-10%,rgba(234,88,12,0.12),transparent)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-10%,rgba(255,107,53,0.12),transparent)]" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-32 bg-gradient-to-b from-orange-500/30 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-6 w-full">
@@ -122,7 +122,7 @@ export const HeroSection = () => {
               Sistema de gestión para restaurantes
             </div>
 
-            <h1 className="text-5xl md:text-6xl font-bold text-[#f5f0eb] leading-[1.05] mb-6 animate-fade-in-up stagger-1"
+            <h1 className="text-5xl md:text-6xl font-bold text-[#2a1810] leading-[1.05] mb-6 animate-fade-in-up stagger-1"
               style={{ fontFamily: "Georgia, serif" }}>
               Gestioná tu<br />
               restaurante con<br />
@@ -146,7 +146,7 @@ export const HeroSection = () => {
 
             <div className="flex flex-col sm:flex-row gap-3 animate-fade-in-up stagger-3">
               <button onClick={() => navigate("/register")}
-                className="group px-7 py-3.5 bg-orange-600 hover:bg-orange-500 text-white rounded-xl font-semibold transition-all shadow-lg shadow-orange-600/25 flex items-center justify-center gap-2">
+                className="group px-7 py-3.5 bg-orange-600 hover:bg-orange-500 text-[#fff9ec] rounded-xl font-semibold transition-all shadow-lg shadow-orange-600/25 flex items-center justify-center gap-2">
                 Crear mi restaurante
                 <FaArrowRight className="text-sm group-hover:translate-x-0.5 transition-transform" />
               </button>

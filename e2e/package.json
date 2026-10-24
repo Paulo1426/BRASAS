@@ -1,0 +1,17 @@
+{
+  "name": "brasas-e2e",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "seed": "node support/seed.js",
+    "test": "node --test --test-concurrency=1 specs/empleado.test.js specs/jefe.test.js",
+    "test:chrome": "cross-env BROWSER=chrome npm test",
+    "test:firefox": "cross-env BROWSER=firefox npm test",
+    "test:edge": "cross-env BROWSER=edge npm test",
+    "test:responsive": "node --test specs/responsive.test.js"
+  },
+  "devDependencies": {
+    "cross-env": "^10.1.0",
+    "selenium-webdriver": "^4.51.0"
+  }
+}

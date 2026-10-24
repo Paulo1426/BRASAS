@@ -39,7 +39,7 @@ const MovimientosTable = ({ movimientos }) => {
               {mov.tipo === "entrada" ? <FaArrowDown /> : <FaArrowUp />}
             </div>
             <div>
-              <p className="text-sm font-medium text-[#f5f0eb] font-body">{mov.insumo_nombre || "Insumo"}</p>
+              <p className="text-sm font-medium text-[#2a1810] font-body">{mov.insumo_nombre || "Insumo"}</p>
               <p className="text-xs text-white/30 font-body">{mov.tipo} · {mov.cantidad} {mov.unidad_medida || ""}</p>
             </div>
           </div>
@@ -113,13 +113,13 @@ export const InventoryPage = () => {
               <FaBox className="text-xl text-orange-400" />
             </div>
             <div>
-              <h1 className="text-2xl md:text-3xl font-heading font-bold text-[#f5f0eb]">Inventario</h1>
+              <h1 className="text-2xl md:text-3xl font-heading font-bold text-[#2a1810]">Inventario</h1>
               <p className="text-sm text-white/40 font-body">Control de insumos y suministros</p>
             </div>
           </div>
           {tab === "insumos" && (
             <button onClick={openCreate}
-              className="flex items-center gap-2 px-5 py-2.5 bg-orange-600 text-white rounded-xl font-semibold text-sm hover:bg-orange-500 transition-all shadow-lg shadow-orange-600/20 font-body">
+              className="flex items-center gap-2 px-5 py-2.5 bg-orange-600 text-[#fff9ec] rounded-xl font-semibold text-sm hover:bg-orange-500 transition-all shadow-lg shadow-orange-600/20 font-body">
               <FaPlus /> Agregar Insumo
             </button>
           )}
@@ -145,7 +145,7 @@ export const InventoryPage = () => {
               <FaSearch className="absolute left-3.5 top-1/2 -translate-y-1/2 text-white/20 text-sm" />
               <input type="text" placeholder="Buscar insumo..." value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="w-full bg-white/[0.04] border border-white/[0.06] rounded-xl pl-10 pr-4 py-2.5 text-sm text-[#f5f0eb] placeholder:text-white/20 focus:outline-none focus:border-orange-500/30 transition-colors font-body" />
+                className="w-full bg-white/[0.04] border border-white/[0.06] rounded-xl pl-10 pr-4 py-2.5 text-sm text-[#2a1810] placeholder:text-white/20 focus:outline-none focus:border-orange-500/30 transition-colors font-body" />
             </div>
 
             {tiposDisponibles.length > 0 && (
@@ -212,13 +212,13 @@ export const InventoryPage = () => {
       {deleteId && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={closeDeleteModal} />
-          <div className="relative bg-[#0f0f0e] border border-white/[0.08] rounded-2xl w-full max-w-sm shadow-2xl shadow-black/60 p-6 space-y-5">
+          <div className="relative bg-[#dccfb1] border border-white/[0.08] rounded-2xl w-full max-w-sm shadow-2xl shadow-black/60 p-6 space-y-5">
             <div className="flex items-center gap-4">
               <div className="w-11 h-11 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center shrink-0">
                 <FaTrash className="text-red-400 text-sm" />
               </div>
               <div>
-                <h3 className="text-base font-bold text-[#f5f0eb]" style={{ fontFamily: "Georgia, serif" }}>Eliminar insumo</h3>
+                <h3 className="text-base font-bold text-[#2a1810]" style={{ fontFamily: "Georgia, serif" }}>Eliminar insumo</h3>
                 <p className="text-sm text-white/40 mt-0.5">Esta acción no se puede deshacer.</p>
               </div>
             </div>

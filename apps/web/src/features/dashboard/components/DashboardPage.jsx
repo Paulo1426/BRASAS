@@ -10,7 +10,6 @@ import ActionHistory from "./ActionHistory";
 import { FinancialHighlightCards } from "./FinancialHighlightCards";
 import { QuickActions } from "./QuickActions";
 import { TopProducts } from "./TopProducts";
-import { CodigoInvitacion } from "../../users/components/CodigoInvitacion";
 
 /* ── Skeleton genérico ── */
 const Skeleton = ({ h = "h-32", rounded = "rounded-2xl" }) => (
@@ -44,7 +43,7 @@ const DashboardPage = () => {
             <FaFire className="text-orange-400 text-lg" />
           </div>
           <div>
-            <h1 className="text-2xl font-bold text-[#f5f0eb]" style={{ fontFamily: "Georgia, serif" }}>
+            <h1 className="text-2xl font-bold text-[#2a1810]" style={{ fontFamily: "Georgia, serif" }}>
               Dashboard
             </h1>
             <p className="text-xs text-white/30">
@@ -80,7 +79,7 @@ const DashboardPage = () => {
         )}
 
         {/* Financial + Inventory */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+        <div className={`grid grid-cols-1 gap-5 ${user?.rol === "ADMIN" ? "lg:grid-cols-2" : ""}`}>
           {user?.rol === "ADMIN" && (
             loading.financial
               ? <Skeleton h="h-48" />
@@ -97,9 +96,6 @@ const DashboardPage = () => {
           ? <Skeleton h="h-40" />
           : <TopProducts products={topProducts} />
         }
-
-        {/* Código invitación */}
-        {isJefeOrAdmin && <CodigoInvitacion />}
 
         {/* Historial */}
         {loading.history

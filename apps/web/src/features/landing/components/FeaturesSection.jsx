@@ -54,7 +54,7 @@ const features = [
 
 export const FeaturesSection = () => (
   <section className="relative border-t border-white/[0.06] py-24">
-    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(234,88,12,0.05),transparent_60%)] pointer-events-none" />
+    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,107,53,0.05),transparent_60%)] pointer-events-none" />
 
     <div className="max-w-7xl mx-auto px-6 relative z-10">
       {/* Header */}
@@ -62,7 +62,7 @@ export const FeaturesSection = () => (
         <span className="text-xs font-semibold text-orange-400 bg-orange-500/10 border border-orange-500/20 px-3 py-1 rounded-full">
           Funcionalidades
         </span>
-        <h2 className="text-4xl md:text-5xl font-bold text-[#f5f0eb] mt-5 mb-4"
+        <h2 className="text-4xl md:text-5xl font-bold text-[#2a1810] mt-5 mb-4"
           style={{ fontFamily: "Georgia, serif" }}>
           Todo lo que necesita tu restaurante
         </h2>
@@ -86,7 +86,7 @@ export const FeaturesSection = () => (
                   {feat.tag}
                 </span>
               </div>
-              <h3 className="text-base font-semibold text-[#f5f0eb] mb-2"
+              <h3 className="text-base font-semibold text-[#2a1810] mb-2"
                 style={{ fontFamily: "Georgia, serif" }}>
                 {feat.title}
               </h3>

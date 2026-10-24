@@ -62,7 +62,7 @@ export const AnalyticsPage = () => {
               <FaChartLine className="text-xl text-orange-400" />
             </div>
             <div>
-              <h1 className="text-2xl md:text-3xl font-heading font-bold text-[#f5f0eb]">
+              <h1 className="text-2xl md:text-3xl font-heading font-bold text-[#2a1810]">
                 Análisis de Rentabilidad
               </h1>
               <p className="text-sm text-white/40 font-body">Márgenes, costos y productos estrella</p>
@@ -70,7 +70,7 @@ export const AnalyticsPage = () => {
           </div>
           <button
             onClick={() => navigate("/menu")}
-            className="flex items-center gap-2 px-5 py-2.5 bg-orange-600 text-white rounded-xl font-semibold text-sm hover:bg-orange-500 transition-all shadow-lg shadow-orange-600/20 font-body"
+            className="flex items-center gap-2 px-5 py-2.5 bg-orange-600 text-[#fff9ec] rounded-xl font-semibold text-sm hover:bg-orange-500 transition-all shadow-lg shadow-orange-600/20 font-body"
           >
             <FaUtensils /> Ir al Menú <FaArrowRight className="text-xs" />
           </button>
@@ -84,7 +84,7 @@ export const AnalyticsPage = () => {
               onClick={() => setPeriodo(p.value)}
               className={`px-4 py-2 rounded-xl text-sm font-semibold font-body transition-all ${
                 periodo === p.value
-                  ? "bg-orange-600 text-white shadow-lg shadow-orange-600/20"
+                  ? "bg-orange-600 text-[#fff9ec] shadow-lg shadow-orange-600/20"
                   : "bg-white/[0.04] text-white/50 border border-white/[0.06] hover:bg-white/[0.07] hover:text-white/70"
               }`}
             >
@@ -112,12 +112,12 @@ export const AnalyticsPage = () => {
           {/* Métodos de pago */}
           {pagos && (
             <div className="glass rounded-2xl p-5">
-              <h3 className="text-base font-heading font-bold text-[#f5f0eb] mb-1">
+              <h3 className="text-base font-heading font-bold text-[#2a1810] mb-1">
                 Cómo te pagaron
               </h3>
               <p className="text-xs text-white/40 font-body mb-4">
                 Total recaudado:{" "}
-                <span className="text-[#f5f0eb] font-mono font-semibold">
+                <span className="text-[#2a1810] font-mono font-semibold">
                   {fmt(pagos.total_general)}
                 </span>
               </p>
@@ -162,7 +162,7 @@ export const AnalyticsPage = () => {
 
           {/* Top productos más vendidos */}
           <div className="glass rounded-2xl p-5">
-            <h3 className="text-base font-heading font-bold text-[#f5f0eb] mb-1 flex items-center gap-2">
+            <h3 className="text-base font-heading font-bold text-[#2a1810] mb-1 flex items-center gap-2">
               <FaFire className="text-orange-400 text-sm" />
               Lo que más vendiste
             </h3>
@@ -184,7 +184,7 @@ export const AnalyticsPage = () => {
                       <span className="text-xs font-number text-white/20 w-4 shrink-0">{i + 1}</span>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between mb-1">
-                          <span className="text-xs text-[#f5f0eb] font-body truncate">{p.nombre}</span>
+                          <span className="text-xs text-[#2a1810] font-body truncate">{p.nombre}</span>
                           <div className="flex items-center gap-2 shrink-0 ml-2">
                             <span className="text-xs font-number text-orange-400 font-semibold">
                               ×{p.cantidad_vendida}
@@ -230,7 +230,7 @@ export const AnalyticsPage = () => {
             <div className="lg:col-span-2">
               <div className="glass rounded-2xl overflow-hidden">
                 <div className="p-5 border-b border-white/[0.06]">
-                  <h3 className="text-lg font-heading font-bold text-[#f5f0eb] flex items-center gap-2">
+                  <h3 className="text-lg font-heading font-bold text-[#2a1810] flex items-center gap-2">
                     <FaPercentage className="text-orange-400 text-sm" />
                     Margen por producto
                   </h3>

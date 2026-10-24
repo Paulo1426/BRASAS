@@ -69,6 +69,7 @@ const NAV = {
         label: "Mi trabajo",
         items: [
           { path: "/empleado/pedidos", label: "Mis Pedidos", icon: FaShoppingCart },
+          { path: "/empleado/menu",    label: "Menú",        icon: FaUtensils     },
         ],
       },
     ],
@@ -80,8 +81,8 @@ const NAV = {
 const Avatar = ({ nombre }) => {
   const initials = (nombre || "?").split(" ").map(w => w[0]).slice(0, 2).join("").toUpperCase();
   return (
-    <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-orange-500/30 to-amber-600/20 border border-orange-500/20 flex items-center justify-center shrink-0">
-      <span className="text-xs font-bold text-orange-300">{initials}</span>
+    <div className="w-9 h-9 rounded-xl bg-[#ff6b35]/25 border border-[#ff6b35]/50 flex items-center justify-center shrink-0">
+      <span className="text-xs font-bold text-[#ffb494]">{initials}</span>
     </div>
   );
 };
@@ -94,7 +95,7 @@ export const Sidebar = () => {
   const location   = useLocation();
 
   const rolKey   = (user?.rol || "").toUpperCase();
-  const config   = NAV[rolKey] || { sections: [], badge: { label: rolKey, color: "bg-white/10 text-white/40 border-white/10" } };
+  const config   = NAV[rolKey] || { sections: [], badge: { label: rolKey, color: "bg-[#f5ead6]/10 text-[#f5ead6]/60 border-[#f5ead6]/20" } };
   const sections = config.sections;
   const badge    = config.badge;
 
@@ -107,17 +108,17 @@ export const Sidebar = () => {
       {/* ── Logo ── */}
       <div className="px-5 pt-6 pb-5 shrink-0">
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-9 h-9 rounded-xl bg-orange-500/15 border border-orange-500/25 flex items-center justify-center shrink-0">
-            <FaFire className="text-orange-400 text-sm" />
+          <div className="w-9 h-9 rounded-xl bg-[#ff6b35]/20 border border-[#ff6b35]/50 flex items-center justify-center shrink-0">
+            <FaFire className="text-[#ff8a5c] text-sm" />
           </div>
           <div className="flex-1 min-w-0">
-            <h1 className="text-sm font-bold text-[#f5f0eb] leading-tight" style={{ fontFamily: "Georgia, serif" }}>
+            <h1 className="text-base font-bold text-[#fff9ec] leading-tight tracking-tight">
               Brasas OS
             </h1>
-            <p className="text-[10px] text-white/25 font-mono tracking-wider">v2.0</p>
+            <p className="text-[10px] text-[#f5ead6]/50 font-mono tracking-wider">v2.0</p>
           </div>
           <button onClick={() => setMobileOpen(false)}
-            className="lg:hidden w-7 h-7 rounded-lg flex items-center justify-center text-white/30 hover:text-white/70 transition-colors">
+            className="lg:hidden w-7 h-7 rounded-lg flex items-center justify-center text-[#f5ead6]/60 hover:text-[#fff9ec] transition-colors">
             <FaTimes className="text-xs" />
           </button>
         </div>
@@ -133,7 +134,7 @@ export const Sidebar = () => {
       <nav className="flex-1 px-3 pb-3 overflow-y-auto space-y-5">
         {sections.map((section) => (
           <div key={section.label}>
-            <p className="text-[9px] font-semibold tracking-[0.15em] uppercase text-white/20 px-3 mb-1.5">
+            <p className="text-[10px] font-semibold tracking-[0.15em] uppercase text-[#f5ead6]/50 px-3 mb-1.5">
               {section.label}
             </p>
             <div className="space-y-0.5">
@@ -144,15 +145,15 @@ export const Sidebar = () => {
                   <button key={item.path} onClick={() => handleNav(item.path)}
                     className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition-all duration-150 text-left group relative
                       ${isActive
-                        ? "bg-orange-500/10 text-orange-400"
-                        : "text-white/40 hover:text-white/75 hover:bg-white/[0.04]"
+                        ? "bg-[#ff6b35] text-[#fff9ec] shadow-md shadow-black/30"
+                        : "text-[#f5ead6]/75 hover:text-[#fff9ec] hover:bg-[#f5ead6]/10"
                       }`}>
                     {/* Active indicator */}
                     {isActive && (
-                      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-5 bg-orange-500 rounded-r-full" />
+                      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-5 bg-[#fff9ec] rounded-r-full" />
                     )}
-                    <Icon className={`text-base shrink-0 ${isActive ? "text-orange-400" : "text-white/25 group-hover:text-white/50"}`} />
-                    <span className="font-medium text-[13px]">{item.label}</span>
+                    <Icon className={`text-base shrink-0 ${isActive ? "text-[#fff9ec]" : "text-[#f5ead6]/60 group-hover:text-[#fff9ec]"}`} />
+                    <span className="font-medium text-[14px]">{item.label}</span>
                   </button>
                 );
               })}
@@ -162,20 +163,20 @@ export const Sidebar = () => {
       </nav>
 
       {/* ── User / Logout ── */}
-      <div className="px-3 pb-5 pt-3 border-t border-white/[0.05] shrink-0 space-y-1">
+      <div className="px-3 pb-5 pt-3 border-t border-[#f5ead6]/10 shrink-0 space-y-1">
         {user && (
           <div className="flex items-center gap-3 px-3 py-2.5 mb-1">
             <Avatar nombre={user.nombre} />
             <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium text-white/80 truncate">{user.nombre || "Usuario"}</p>
-              <p className="text-[10px] text-white/30 truncate">{user.email || ""}</p>
+              <p className="text-sm font-semibold text-[#fff9ec] truncate">{user.nombre || "Usuario"}</p>
+              <p className="text-[11px] text-[#f5ead6]/60 truncate">{user.email || ""}</p>
             </div>
           </div>
         )}
         <button onClick={handleLogout}
-          className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-white/35 hover:text-red-400 hover:bg-red-500/5 transition-all duration-150 group">
+          className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-[#f5ead6]/70 hover:text-red-300 hover:bg-red-500/10 transition-all duration-150 group">
           <FaSignOutAlt className="text-base shrink-0 group-hover:text-red-400 transition-colors" />
-          <span className="font-medium text-[13px]">Cerrar sesión</span>
+          <span className="font-medium text-[14px]">Cerrar sesión</span>
         </button>
       </div>
     </div>
@@ -185,14 +186,14 @@ export const Sidebar = () => {
     <>
       {/* Mobile toggle */}
       <button onClick={() => setMobileOpen(!mobileOpen)}
-        className="fixed top-4 left-4 z-50 w-10 h-10 bg-[#111] border border-white/[0.08] rounded-xl flex items-center justify-center text-white/60 hover:text-white transition-all lg:hidden shadow-lg">
+        className="fixed top-4 left-4 z-50 w-10 h-10 bg-[#2a1810] border border-[#f5ead6]/20 rounded-xl flex items-center justify-center text-[#f5ead6]/80 hover:text-[#fff9ec] transition-all lg:hidden shadow-lg">
         {mobileOpen ? <FaTimes /> : <FaBars />}
       </button>
 
       {/* Sidebar */}
       <aside className={`
         fixed inset-y-0 left-0 z-40 w-[240px] h-screen
-        bg-[#0b0b0a] border-r border-white/[0.06]
+        bg-[#2a1810] border-r border-[#f5ead6]/10
         transition-transform duration-300 ease-out
         ${mobileOpen ? "translate-x-0 shadow-2xl shadow-black/60" : "-translate-x-full lg:translate-x-0"}
       `}>

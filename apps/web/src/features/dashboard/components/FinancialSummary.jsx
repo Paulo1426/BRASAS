@@ -7,7 +7,7 @@ const FinancialSummary = ({ financial }) => {
 
   return (
     <div className="glass rounded-2xl p-5 animate-fade-in-up stagger-5 opacity-0">
-      <h3 className="text-lg font-heading font-bold text-[#f5f0eb] flex items-center gap-2 mb-5">
+      <h3 className="text-lg font-heading font-bold text-[#2a1810] flex items-center gap-2 mb-5">
         <FiTrendingUp className="text-orange-400" />
         Resumen Contable
       </h3>

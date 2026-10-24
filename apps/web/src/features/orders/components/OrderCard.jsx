@@ -50,7 +50,13 @@ export const OrderCard = ({ order, onStatusChange, onCancel }) => {
     onStatusChange(order.id, "completado", pagoBackend);
   };
 
-  const PagoInfo = pago && PAGO_ICONS[pago.metodo];
+  // Pago local (recién confirmado en esta sesión) o datos persistidos en el pedido
+  const pagoEfectivo = pago || (order.metodo_pago ? {
+    metodo:        order.metodo_pago,
+    efectivo:      order.monto_efectivo,
+    transferencia: order.monto_transferencia,
+  } : null);
+  const PagoInfo = pagoEfectivo && PAGO_ICONS[pagoEfectivo.metodo];
 
   return (
     <>
@@ -63,7 +69,7 @@ export const OrderCard = ({ order, onStatusChange, onCancel }) => {
               <FaBox className="text-white/30 text-sm" />
             </div>
             <div>
-              <p className="text-[#f5f0eb] font-medium text-sm">
+              <p className="text-[#2a1810] font-medium text-sm">
                 Pedido <span className="font-mono text-orange-400">#{order.id?.slice(0, 8)}</span>
               </p>
               <p className="text-xs text-white/30 mt-0.5">
@@ -92,7 +98,7 @@ export const OrderCard = ({ order, onStatusChange, onCancel }) => {
         <div className="space-y-1.5 pt-4 border-t border-white/[0.04]">
           <div className="flex justify-between text-sm">
             <span className="text-white/40">Total venta</span>
-            <span className="font-mono font-bold text-lg text-[#f5f0eb]">
+            <span className="font-mono font-bold text-lg text-[#2a1810]">
               ${order.total?.toLocaleString("es-CO") || "0"}
             </span>
           </div>
@@ -113,13 +119,13 @@ export const OrderCard = ({ order, onStatusChange, onCancel }) => {
         </div>
 
         {/* Pago registrado */}
-        {pago && PagoInfo && (
+        {pagoEfectivo && PagoInfo && (
           <div className={`mt-3 flex items-center gap-2 px-3 py-2 rounded-xl bg-white/[0.02] border border-white/[0.05] text-xs ${PagoInfo.color}`}>
             <PagoInfo.icon className="text-sm shrink-0" />
             <span className="font-medium">{PagoInfo.label}</span>
-            {pago.metodo === "ambos" && (
+            {pagoEfectivo.metodo === "ambos" && (
               <span className="text-white/30 ml-1 font-mono">
-                Ef: ${Number(pago.efectivo).toLocaleString("es-CO")} · Tr: ${Number(pago.transferencia).toLocaleString("es-CO")}
+                Ef: ${Number(pagoEfectivo.efectivo).toLocaleString("es-CO")} · Tr: ${Number(pagoEfectivo.transferencia).toLocaleString("es-CO")}
               </span>
             )}
           </div>
