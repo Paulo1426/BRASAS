@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/server.js",
-    "dev": "nodemon src/server.js"
+    "dev": "nodemon src/server.js",
+    "test:int": "jest tests/integracion/componentes",
+    "test:int:bd": "jest --runInBand tests/integracion/bd tests/integracion/hilos",
+    "test:cov": "jest tests/integracion/componentes --coverage",
+    "start:test": "dotenv -e .env.test -- node src/server.js"
   },
   "keywords": [],
   "author": "",
@@ -25,6 +29,9 @@
     "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
-    "nodemon": "^3.1.14"
+    "dotenv-cli": "^11.0.0",
+    "jest": "^30.5.2",
+    "nodemon": "^3.1.14",
+    "supertest": "^7.3.1"
   }
 }
