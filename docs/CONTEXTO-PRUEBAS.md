@@ -100,7 +100,6 @@ Los defectos DEF-01 a DEF-23 están en el Anexo C del documento. Los más import
 
 ## 7. Pendiente
 
-- Capturas de la interfaz gráfica de JMeter (árbol del plan y View Results Tree) y de ZAP (árbol de sitios y configuración de Selenium).
-- Captura de la configuración de Lighthouse y de la instalación en un segundo equipo (`npm ci` y `npm run build`).
+- Todas las capturas del documento ya están insertadas; no se usó un segundo equipo (todo se ejecutó en un solo computador, Ryzen 5 5600G con Windows 11).
 - Corregir los defectos del Anexo C y repetir las pruebas fallidas como regresión.
 - Verificar el documento en Word: actualizar la tabla de contenido (clic derecho, Actualizar campo).
