@@ -49,3 +49,9 @@ docs/resultados/zap/*.png
 docs/resultados/sonarqube/*.png
 docs/resultados/fiabilidad/*.png
 .scannerwork/
+
+# graphify, Claude Code y capturas de instalación
+graphify-out/
+.claude/
+CLAUDE.md
+docs/resultados/instalacion/
